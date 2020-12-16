@@ -10,8 +10,8 @@ Bret Merritt
 <br />
 <br>
 Nathan Darrington
-[<img align="left" alt="Nathan's github" width="22px" src="https://raw.githubusercontent.com/iconic/open-iconic/master/svg/globe.svg" />][git-travis]
-[<img align="left" alt="Nathan's linkedin' | LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin-travis]
+[<img align="left" alt="Nathan's github" width="22px" src="https://raw.githubusercontent.com/iconic/open-iconic/master/svg/globe.svg" />][git-nath]
+[<img align="left" alt="Nathan's linkedin' | LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin-nath]
 <br />
 <br>
 Nicole Gooden
