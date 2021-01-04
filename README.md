@@ -1,29 +1,42 @@
-# boneyard
+# The Bone Yard -- frontend
 
-## Project setup
-```
-npm install
-```
+## Purpose 
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Contributors
 
-### Compiles and minifies for production
-```
-npm run build
-```
+Bret Merritt
+[<img align="left" alt="Bret's github" width="22px" src="https://raw.githubusercontent.com/iconic/open-iconic/master/svg/globe.svg" />][git-bret]
+[<img align="left" alt="Bret's linkedin' | LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin-bret]
+<br />
+<br>
+Nathan Darrington
+[<img align="left" alt="Nathan's github" width="22px" src="https://raw.githubusercontent.com/iconic/open-iconic/master/svg/globe.svg" />][git-nath]
+[<img align="left" alt="Nathan's linkedin' | LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin-nath]
+<br />
+<br>
+Nicole Gooden
+[<img align="left" alt="Nicole's github" width="22px" src="https://raw.githubusercontent.com/iconic/open-iconic/master/svg/globe.svg" />][git-nicole]
+[<img align="left" alt="Nicole's linkedin' | LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin-nicole]
+<br />
+<br>
+Stacy Potten
+[<img align="left" alt="Stacy's github" width="22px" src="https://raw.githubusercontent.com/iconic/open-iconic/master/svg/globe.svg" />][git-stac]
+[<img align="left" alt="Stacy's linkedin' | LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin-stac]
+<br />
 
-### Run your unit tests
-```
-npm run test:unit
-```
+## Set-up
 
-### Lints and fixes files
-```
-npm run lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
+[git-bret]: https://github.com/bretm9
+[linkedin-bret]: https://www.linkedin.com/in/bret-merritt/
+
+
+[git-nath]: https://github.com/npdarrington
+[linkedin-nath]: https://www.linkedin.com/in/nathandarrington/
+
+[git-nicole]: https://github.com/nicolegooden
+[linkedin-nicole]: https://www.linkedin.com/in/nicolemgooden/
+
+[git-stac]: https://github.com/stacyp2006
+[linkedin-stac]: https://www.linkedin.com/in/stacy-potten/
