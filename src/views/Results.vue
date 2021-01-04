@@ -11,12 +11,13 @@
 export default {
   data() {
     return {
-      view: 'list',
+      listView: true,
     };
   },
   methods: {
-    // selectView() {
-    // }
+    selectView() {
+      this.listView = !this.listView;
+    },
   },
 };
 </script>
