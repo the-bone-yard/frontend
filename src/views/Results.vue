@@ -8,11 +8,17 @@
 </template>
 
 <script>
+import ResultsList from '../components/ResultsList.vue'
+import ResultsMap from '../components/ResultsMap.vue'
 export default {
   data() {
     return {
       listView: true,
     };
+  },
+  components: {
+    ResultsList,
+    ResultsMap
   },
   methods: {
     selectView() {
