@@ -2,8 +2,8 @@
   <section>
     <button @click="selectView">List View</button>
     <button @click="selectView">Map View</button>
-    <results-list v-if=""></results-list>
-    <results-map></results-map>
+    <results-list v-if="listView"></results-list>
+    <results-map v-else></results-map>
   </section>
 </template>
 
