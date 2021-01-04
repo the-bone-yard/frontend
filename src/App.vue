@@ -1,12 +1,15 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/" />
     </div>
     <router-view/>
   </div>
 </template>
+
+<script>
+
+</script>
 
 <style lang="scss">
 #app {
@@ -28,5 +31,11 @@
       color: #42b983;
     }
   }
+}
+
+body, html {
+  height: 100%;
+  padding: 0;
+  margin: 0;
 }
 </style>
