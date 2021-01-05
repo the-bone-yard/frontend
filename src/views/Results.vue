@@ -14,7 +14,6 @@ import ResultsMap from '../components/ResultsMap.vue'
 export default {
   data() {
     return {
-      listView: true,
       selectedComponent: "results-list"
     };
   },
