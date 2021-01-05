@@ -1,17 +1,17 @@
 <template>
 	<GmapMap
-		:center="{ lat: 40.0562161, lng: -105.0465427 }"
-		:zoom="14"
+		:center="centerMap"
+		:zoom="10"
 		map-type-id="terrain"
 		style="width: 100%; height: 50vh"
 	>
 		<GmapMarker
-			:key="index"
 			v-for="(m, index) in markers"
+			:key="index"
 			:position="m.geometry.location"
 			:clickable="true"
 			:draggable="false"
-			@click="testClickEvent(m.name)"
+			@click="centerMapToClickedLocation(m.name)"
 		/>
 	</GmapMap>
 </template>
@@ -21,13 +21,16 @@ export default {
   props: ['searchResults'],
   data() {
     return {
-      markers: this.searchResults
+			markers: this.searchResults,
+			centerMap: {
+				lat: 40, lng: -105.0465427
+			}
     }
   },
   methods: {
-    testClickEvent(name) {
-      console.log(name)
-    }
+    centerMapToClickedLocation() {
+			
+		}
   }
 };
 </script>
