@@ -1,9 +1,10 @@
 <template>
   <section>
-    <button @click="selectView">List View</button>
-    <button @click="selectView">Map View</button>
-    <results-list v-if="listView"></results-list>
-    <results-map v-else></results-map>
+    <button @click="setSelectedComponent('results-list')">List View</button>
+    <button @click="setSelectedComponent('results-map')">Map View</button>
+    <keep-alive>
+      <component :is="selectedComponent"></component>
+    </keep-alive>
   </section>
 </template>
 
@@ -14,6 +15,7 @@ export default {
   data() {
     return {
       listView: true,
+      selectedComponent: "results-list"
     };
   },
   components: {
@@ -21,8 +23,8 @@ export default {
     ResultsMap
   },
   methods: {
-    selectView() {
-      this.listView = !this.listView;
+    setSelectedComponent(cmp) {
+      this.selectedComponent = cmp;
     },
   },
 };
