@@ -11,7 +11,7 @@
 			:position="m.geometry.location"
 			:clickable="true"
 			:draggable="false"
-			@click="testClickEvent(m.full_name)"
+			@click="testClickEvent(m.name)"
 		/>
 	</GmapMap>
 </template>
