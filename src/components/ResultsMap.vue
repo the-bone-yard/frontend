@@ -28,9 +28,16 @@ export default {
     }
   },
   methods: {
-    centerMapToClickedLocation() {
-			
-		}
+    centerMapToClickedLocation(name) {
+			const findLocation = this.markers.find(loc => loc.name === name);
+			if (findLocation) {
+				this.centerMap = {
+					lat: findLocation.geometry.location.lat,
+					lng: findLocation.geometry.location.lng
+				};
+			}
+			// make helper method that will open details of park they clicked on
+    }
   }
 };
 </script>
