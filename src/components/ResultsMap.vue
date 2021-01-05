@@ -8,7 +8,7 @@
 		<GmapMarker
 			:key="index"
 			v-for="(m, index) in markers"
-			:position="m.geomerty"
+			:position="m.geometry.location"
 			:clickable="true"
 			:draggable="false"
 			@click="testClickEvent(m.full_name)"
@@ -17,5 +17,17 @@
 </template>
 
 <script>
-
+export default {
+  props: ['searchResults'],
+  data() {
+    return {
+      markers: this.searchResults
+    }
+  },
+  methods: {
+    testClickEvent(name) {
+      console.log(name)
+    }
+  }
+};
 </script>
