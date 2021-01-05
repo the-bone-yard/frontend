@@ -3,7 +3,9 @@
     <button @click="setSelectedComponent('results-list')">List View</button>
     <button @click="setSelectedComponent('results-map')">Map View</button>
     <keep-alive>
-      <component :is="selectedComponent"></component>
+      <component 
+        :is="selectedComponent" 
+        :searchResults="searchResults"></component>
     </keep-alive>
   </section>
 </template>
@@ -15,7 +17,7 @@ export default {
   data() {
     return {
       selectedComponent: "results-list",
-      testPlaces: [
+      searchResults: [
         {
             "formatted_address": "900 County Rd 1 1/2, Erie, CO 80516, United States",
             "geometry": {
