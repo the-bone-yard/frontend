@@ -1,12 +1,10 @@
-import { shallowMount } from '@vue/test-utils'
-import HelloWorld from '@/components/HelloWorld.vue'
+import { mount } from '@vue/test-utils'
+import * as TheHeader from '@/components/TheHeader.vue'
 
-describe('HelloWorld.vue', () => {
-  it('renders props.msg when passed', () => {
-    const msg = 'new message'
-    const wrapper = shallowMount(HelloWorld, {
-      propsData: { msg }
-    })
-    expect(wrapper.text()).toMatch(msg)
+describe('TheHeader', () => {
+  it('renders TheHeader component', () => {
+    const header = mount(TheHeader)
+    expect(header.exists()).toBe(true)
   })
+  //router-link is throwing an error but test is passing - look into this
 })
