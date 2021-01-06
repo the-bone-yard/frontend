@@ -1,17 +1,17 @@
 <template>
 	<GmapMap
-		:center="{ lat: 40.0562161, lng: -105.0465427 }"
-		:zoom="14"
+		:center="centerMap"
+		:zoom="10"
 		map-type-id="terrain"
 		style="width: 100%; height: 50vh"
 	>
 		<GmapMarker
-			:key="index"
 			v-for="(m, index) in markers"
+			:key="index"
 			:position="m.geometry.location"
 			:clickable="true"
 			:draggable="false"
-			@click="testClickEvent(m.full_name)"
+			@click="centerMapToClickedLocation(m.name)"
 		/>
 	</GmapMap>
 </template>
@@ -21,12 +21,22 @@ export default {
   props: ['searchResults'],
   data() {
     return {
-      markers: this.searchResults
+			markers: this.searchResults,
+			centerMap: {
+				lat: 40, lng: -105.0465427
+			}
     }
   },
   methods: {
-    testClickEvent(name) {
-      console.log(name)
+    centerMapToClickedLocation(name) {
+			const findLocation = this.markers.find(loc => loc.name === name);
+			if (findLocation) {
+				this.centerMap = {
+					lat: findLocation.geometry.location.lat,
+					lng: findLocation.geometry.location.lng
+				};
+			}
+			// make helper method that will open details of park they clicked on
     }
   }
 };
