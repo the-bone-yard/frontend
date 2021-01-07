@@ -3,11 +3,11 @@
     <input
       class="search-input"
       type="text"
-      placeholder="Search by name, address or zip code"
+      placeholder="Search by name, city or zip code"
       v-model="searchTerm"
     />
     <button class="search-button" @click="search('searchTerm')">
-      Find a Park!
+      Get Started - woof!
     </button>
   </section>
 </template>
