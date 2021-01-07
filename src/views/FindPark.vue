@@ -22,6 +22,7 @@ export default {
   methods: {
     search() {
       console.log(this.searchTerm);
+      this.searchTerm = '';
       //functionality for search goes here...
     },
   },
