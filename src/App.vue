@@ -2,16 +2,16 @@
   <div id="app">
     <TheHeader />
     <router-link to="/" />
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
 <script>
-import TheHeader from './components/TheHeader.vue'
+import TheHeader from './components/TheHeader.vue';
 
 export default {
-  components: { TheHeader }
-}
+  components: { TheHeader },
+};
 </script>
 
 <style lang="scss">
@@ -36,7 +36,8 @@ export default {
   }
 }
 
-body, html {
+body,
+html {
   height: 100%;
   padding: 0;
   margin: 0;

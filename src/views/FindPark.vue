@@ -1,7 +1,11 @@
 <template>
   <section>
-    <input type="text" v-model="searchTerm" />
-    <button @click="search(searchTerm)">Find a Park!</button>
+    <input
+      type="text"
+      placeholder="Search by name, address or zip code"
+      v-model="searchTerm"
+    />
+    <button @click="search('searchTerm')">Find a Park!</button>
   </section>
 </template>
 
@@ -13,7 +17,12 @@ export default {
     };
   },
   methods: {
-    search(searchTerm) {},
+    search() {
+      console.log(this.searchTerm);
+      //functionality for search goes here...
+    },
   },
 };
 </script>
+
+// Add error handling for no entry
