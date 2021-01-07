@@ -1,7 +1,7 @@
 <template>
   <section>
     <article class='article-button'>
-      <button @click="$emit('savePark', $parkName)" class='button-save-park'>SAVE</button>
+      <button @click="$emit('save:park', parkName)" class='button-save-park'>SAVE</button>
     </article>
     <article class='article-destination'>
       <h1 class='detail-descriptor'>Destination: </h1>
@@ -17,6 +17,7 @@
         :alt="'photo for ' + parkName"
         :src="photo.src" 
       />
+      <!-- set up carousel for photos with max of 1 shown at a time -->
     </article>
     <h1 class='detail-descriptor'>Directions: </h1>
     <h2>Not the right park for your pup?</h2>
@@ -30,7 +31,7 @@
 
 <script>
 export default {
-  inject: ['savedParks', 'savePark'],
+  inject: ['savePark'],
   data() {
     return {
       photos: [
