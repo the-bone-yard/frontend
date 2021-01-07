@@ -1,7 +1,7 @@
 <template>
   <section>
     <article class='article-button'>
-      <button class='button-save-park'>SAVE</button>
+      <button @click="$emit('savePark', $parkName)" class='button-save-park'>SAVE</button>
     </article>
     <article class='article-destination'>
       <h1 class='detail-descriptor'>Destination: </h1>
@@ -11,10 +11,17 @@
       <h1 class='detail-descriptor'>Description: </h1>
       <p>Open Now?</p>
       <p>Rating: /5</p>
+      <img 
+        v-for="photo in photos" 
+        :key="photo.id" 
+        :alt="'photo for ' + parkName"
+        :src="photo.src" 
+      />
     </article>
     <h1 class='detail-descriptor'>Directions: </h1>
     <h2>Not the right park for your pup?</h2>
     <article>
+      <!-- add router link for 'search again' button to return to search route -->
       <button>search again</button>
       <router-link to='/'><button>home</button></router-link>
     </article>
@@ -23,13 +30,31 @@
 
 <script>
 export default {
+  inject: ['savedParks', 'savePark'],
   data() {
     return {
-      photos: []
+      photos: [
+          {
+            id: 1,
+            src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHGlnnbCP_rFQIQYvraw51_rFPpfuaq1to5A&usqp=CAU',
+            height: 500,
+            width: 500
+          },
+          {
+            id: 2,
+            src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHGlnnbCP_rFQIQYvraw51_rFPpfuaq1to5A&usqp=CAU',
+            height: 500,
+            width: 500
+          },
+          {
+            id: 3,
+            src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHGlnnbCP_rFQIQYvraw51_rFPpfuaq1to5A&usqp=CAU',
+            height: 500,
+            width: 500
+          }
+        ],
+      parkName: 'Chatfield State Park'
     }
-  },
-  methods: {
-    
   }
 }
 </script>
