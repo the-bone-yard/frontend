@@ -1,11 +1,14 @@
 <template>
   <section>
     <input
+      class="search-input"
       type="text"
       placeholder="Search by name, address or zip code"
       v-model="searchTerm"
     />
-    <button @click="search('searchTerm')">Find a Park!</button>
+    <button class="search-button" @click="search('searchTerm')">
+      Find a Park!
+    </button>
   </section>
 </template>
 
@@ -24,5 +27,19 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.search-input {
+  margin: 10px;
+  width: 250px;
+  height: 20px;
+  border-radius: 20%;
+  padding: 1em;
+}
+.search-button {
+  border-radius: 20%;
+  padding: 1em;
+}
+</style>
 
 // Add error handling for no entry
