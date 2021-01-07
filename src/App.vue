@@ -2,9 +2,9 @@
   <div id="app">
     <TheHeader />
     <router-link to="/" exact/>
-    <router-link to="/results/item-details" exact>
+    <router-link to="/results/item-details" exact />
       <ResultsItemDetails @save:park='savePark' />
-    </router-link>
+    <!-- </router-link> -->
     <router-view/>
   </div>
 </template>
