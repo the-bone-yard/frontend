@@ -12,7 +12,7 @@
       <router-link to="/">home</router-link> <br />
       <!-- might not need the home link here - click on bone yard title to go home -->
       <router-link to="/my-parks">my parks</router-link> <br />
-      <router-link to="/find-park">find park</router-link>
+      <!-- <router-link to="/find-park">find park</router-link> -->
     </nav>
   </section>
 </template>
