@@ -11,15 +11,15 @@
       <h1 class='detail-descriptor'>Description: </h1>
       <p>Open Now?</p>
       <p>Rating: /5</p>
-      <img 
-        v-for="photo in photos" 
-        :key="photo.id" 
-        :alt="'photo for ' + parkName"
-        :src="photo.src" 
-      />
-      <!-- set up carousel for photos with max of 1 shown at a time -->
+      <splide :options="options">
+        <splide-slide v-for="photo in photos" :key="photo.id" >
+          <img :src="photo.src" :alt="'photo for ' + parkName" />
+        </splide-slide>
+      </splide>
     </article>
-    <h1 class='detail-descriptor'>Directions: </h1>
+    <article class='article-directions'>
+      <h1 class='detail-descriptor'>Directions: </h1> 
+    </article>
     <h2>Not the right park for your pup?</h2>
     <article>
       <!-- add router link for 'search again' button to return to search route -->
@@ -30,10 +30,22 @@
 </template>
 
 <script>
+import { Splide, SplideSlide } from '@splidejs/vue-splide'
+import '@splidejs/splide/dist/css/themes/splide-sea-green.min.css';
+
 export default {
+  components: {
+    Splide,
+    SplideSlide
+  },
   inject: ['savePark'],
   data() {
     return {
+      options: {
+          rewind: true,
+          width: 1000,
+          gap: '1rem',
+        },
       photos: [
           {
             id: 1,
@@ -43,7 +55,7 @@ export default {
           },
           {
             id: 2,
-            src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHGlnnbCP_rFQIQYvraw51_rFPpfuaq1to5A&usqp=CAU',
+            src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpOWFPV2DlS6Qnu-ZNlIkA4Cpiwo3WsXpCww&usqp=CAU',
             height: 500,
             width: 500
           },
