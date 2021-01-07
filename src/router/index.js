@@ -18,7 +18,7 @@ const routes = [
     component: ResultsContainer,
   },
   {
-    path: '/findpark',
+    path: '/find-park',
     name: 'Find Park',
     component: FindPark,
   },
