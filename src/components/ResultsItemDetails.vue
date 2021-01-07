@@ -8,7 +8,6 @@
       <p>Address: </p>
     </article>
     <article class='article-description'>
-      <h1 class='detail-descriptor'>Description: </h1>
       <p>Open Now?</p>
       <p>Rating: /5</p>
       <splide :options="options">
@@ -18,7 +17,7 @@
       </splide>
     </article>
     <article class='article-directions'>
-      <h1 class='detail-descriptor'>Directions: </h1> 
+      <button class='button-get-directions'>Get Directions</button>
     </article>
     <h2>Not the right park for your pup?</h2>
     <article>
