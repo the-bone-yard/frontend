@@ -1,5 +1,8 @@
 <template>
   <section>
+    <h2>Let's Go Play!</h2>
+    <button>Find a dog park near me!</button>
+    <h3>--Or--</h3>
     <input
       class="search-input"
       type="text"
@@ -39,7 +42,7 @@ export default {
   border-radius: 20%;
   padding: 1em;
 }
-.search-button {
+button {
   border-radius: 20%;
   padding: 1em;
 }
