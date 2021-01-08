@@ -23,7 +23,6 @@ export default {
   methods: {
     search() {
       if (this.searchTerm !== '') {
-        console.log(this.searchTerm);
         this.searchTerm = '';
         //functionality for search goes here...
       }
