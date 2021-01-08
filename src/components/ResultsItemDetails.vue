@@ -11,20 +11,15 @@
       <p>Open Now?</p>
       <p>Rating: /5</p>
       <splide :options="options">
-        <splide-slide v-for="photo in photos" :key="photo.id" >
+        <splide-slide v-for="(photo, i) in photos" :key="i" >
           <img :src="photo.src" :alt="'photo for ' + parkName" />
         </splide-slide>
       </splide>
     </article>
-    <article class='article-directions'>
-      <button class='button-get-directions'>Get Directions</button>
-    </article>
+    <button class='button-get-directions'>Get Directions</button>
+    <!-- button is not functional yet - need to get a directions component w/ router -->
     <h2>Not the right park for your pup?</h2>
-    <article>
-      <!-- add router link for 'search again' button to return to search route -->
-      <button>search again</button>
-      <router-link to='/'><button>home</button></router-link>
-    </article>
+    <router-link to='/'><button>search again</button></router-link>
   </section>
 </template>
 
@@ -47,19 +42,16 @@ export default {
         },
       photos: [
           {
-            id: 1,
             src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHGlnnbCP_rFQIQYvraw51_rFPpfuaq1to5A&usqp=CAU',
             height: 500,
             width: 500
           },
           {
-            id: 2,
             src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpOWFPV2DlS6Qnu-ZNlIkA4Cpiwo3WsXpCww&usqp=CAU',
             height: 500,
             width: 500
           },
           {
-            id: 3,
             src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHGlnnbCP_rFQIQYvraw51_rFPpfuaq1to5A&usqp=CAU',
             height: 500,
             width: 500
@@ -69,6 +61,8 @@ export default {
     }
   }
 }
+// will need to get any details about park from props - passed from ResultsContainer
+// specifically for parkName, photos, rating, open, address, etc.
 </script>
 
 <style lang="scss" scoped>
