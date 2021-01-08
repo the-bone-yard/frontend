@@ -3,6 +3,7 @@
     <TheHeader />
     <router-link to="/" exact/>
     <router-link to="/results/item-details" exact />
+    <!-- make dynamic with :name from park object -->
       <ResultsItemDetails @save:park='savePark' />
     <!-- </router-link> -->
     <router-view/>
