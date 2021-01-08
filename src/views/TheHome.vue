@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import FindPark from './FindPark.vue';
+import FindPark from '../components/FindPark.vue';
 
 export default {
   components: { FindPark },
