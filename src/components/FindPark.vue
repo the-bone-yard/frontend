@@ -7,12 +7,12 @@
       class="search-input"
       type="text"
       placeholder="Search by name, city or zip code"
-      v-model="searchTerm"
+      ref="enteredValue"
     />
-    <button class="search-button" @click="search('searchTerm')">
+    <button class="search-button" @click="setSearchTerm">
       Get Started - woof!
     </button>
-    <p v-if="searchTerm === ''">Please enter a park name, city, or zip code</p>
+    <p v-if="inputIsInvalid">Please enter a park name, city, or zip code</p>
   </section>
 </template>
 
@@ -21,9 +21,18 @@ export default {
   data() {
     return {
       searchTerm: '',
+      inputIsInvalid: false,
     };
   },
   methods: {
+    setSearchTerm() {
+      const enteredValue = this.$refs.enteredValue.value;
+      if (enteredValue === '') {
+        this.inputIsInvalid = true;
+      } else {
+        this.search();
+      }
+    },
     search() {
       if (this.searchTerm !== '') {
         this.searchTerm = '';
