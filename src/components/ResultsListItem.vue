@@ -14,5 +14,14 @@ export default {
 </script>
 
 <style>
+.item-card {
+  position: relative;
+  border-style: solid;
+}
 
+.save-button {
+  position:absolute; 
+  top: 1em; 
+  right: 1em;
+}
 </style>
