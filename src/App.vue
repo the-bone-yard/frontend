@@ -57,7 +57,8 @@ export default {
   }
 }
 
-body, html {
+body,
+html {
   height: 100%;
   padding: 0;
   margin: 0;
