@@ -9,6 +9,7 @@
     <button class="search-button" @click="search('searchTerm')">
       Get Started - woof!
     </button>
+    <p v-if="searchTerm === ''">Please enter a park name, city, or zip code</p>
   </section>
 </template>
 
@@ -21,9 +22,11 @@ export default {
   },
   methods: {
     search() {
-      console.log(this.searchTerm);
-      this.searchTerm = '';
-      //functionality for search goes here...
+      if (this.searchTerm !== '') {
+        console.log(this.searchTerm);
+        this.searchTerm = '';
+        //functionality for search goes here...
+      }
     },
   },
 };
@@ -42,5 +45,3 @@ export default {
   padding: 1em;
 }
 </style>
-
-// Add error handling for no entry
