@@ -1,14 +1,29 @@
 <template>
-  <section>
-    <h1>List Item</h1>
+  <section class="item-card">
+    <button @click="$emit('save:park', parkName)" class="save-button">
+      SAVE
+    </button>
+    <h1>{{ result.name }}</h1>
+    <h1>{{ result.formatted_address }}</h1>
   </section>
 </template>
 
 <script>
 export default {
-}
+  props: ['result'],
+  inject: ['savePark'],
+};
 </script>
 
 <style>
+.item-card {
+  position: relative;
+  border-style: solid;
+}
 
+.save-button {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+}
 </style>
