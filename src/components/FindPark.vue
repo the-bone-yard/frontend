@@ -1,7 +1,7 @@
 <template>
   <section>
     <h2>Let's Go Play!</h2>
-    <button>Find a dog park near me!</button>
+    <button @click="searchByLocation">Find a dog park near me!</button>
     <h3>--Or--</h3>
     <input
       class="search-input"
@@ -30,14 +30,17 @@ export default {
       if (enteredValue === '') {
         this.inputIsInvalid = true;
       } else {
-        this.search();
+        this.searchTerm = enteredValue;
+        this.search(this.searchTerm);
       }
     },
     search() {
-      if (this.searchTerm !== '') {
-        this.searchTerm = '';
-        //functionality for search goes here...
-      }
+      //functionality for search goes here...
+      this.searchTerm = '';
+      this.inputIsInvalid = false;
+    },
+    searchByLocation() {
+      //functionality based on geolocation goes here
     },
   },
 };
