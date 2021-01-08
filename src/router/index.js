@@ -2,7 +2,6 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import TheHome from '../views/TheHome.vue';
 import ResultsContainer from '../views/ResultsContainer.vue';
-import FindPark from '../views/FindPark.vue';
 
 Vue.use(VueRouter);
 
@@ -16,11 +15,6 @@ const routes = [
     path: '/results',
     name: 'Results',
     component: ResultsContainer,
-  },
-  {
-    path: '/find-park',
-    name: 'Find Park',
-    component: FindPark,
   },
 ];
 
