@@ -1,16 +1,37 @@
 <template>
   <div id="app">
     <TheHeader />
-    <router-link to="/" />
+    <router-link to="/" exact/>
+    <router-link to="/results/item-details" exact />
+    <!-- make dynamic with :name from park object -->
+      <ResultsItemDetails @save:park='savePark' />
+    <!-- </router-link> -->
     <router-view/>
   </div>
 </template>
 
 <script>
 import TheHeader from './components/TheHeader.vue'
+import ResultsItemDetails from './components/ResultsItemDetails.vue'
 
 export default {
-  components: { TheHeader }
+  components: { TheHeader, ResultsItemDetails },
+  data() {
+    return {
+      savedParks: []
+    }
+  },
+  provide() {
+    return {
+      savedParks: this.savedParks,
+      savePark: this.savePark
+    }
+  },
+  methods: {
+    savePark(newPark) {
+      this.savedParks = [...this.savedParks, newPark] 
+    }
+  }
 }
 </script>
 
@@ -36,7 +57,8 @@ export default {
   }
 }
 
-body, html {
+body,
+html {
   height: 100%;
   padding: 0;
   margin: 0;
