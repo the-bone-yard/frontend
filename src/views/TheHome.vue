@@ -28,8 +28,4 @@ section {
   width: 15em;
   border-radius: 5%;
 }
-.button-get-started {
-  border-radius: 20%;
-  padding: 1em;
-}
 </style>
