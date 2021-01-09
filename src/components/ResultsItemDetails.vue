@@ -1,7 +1,7 @@
 <template>
   <section>
     <article class='article-button'>
-      <button @click="$emit('save:park', parkName)" class='button-save-park'>SAVE</button>
+      <button @click="favoritePark(parkName)" class='button-save-park'>SAVE</button>
     </article>
     <article class='article-destination'>
       <h1 class='detail-descriptor'>Destination: </h1>
@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import { eventBus } from '../main'
 import { Splide, SplideSlide } from '@splidejs/vue-splide'
 import '@splidejs/splide/dist/css/themes/splide-sea-green.min.css';
 
@@ -32,7 +33,6 @@ export default {
     Splide,
     SplideSlide
   },
-  inject: ['savePark'],
   data() {
     return {
       options: {
@@ -58,6 +58,11 @@ export default {
           }
         ],
       parkName: 'Chatfield State Park'
+    }
+  },
+  methods: {
+    favoritePark(parkName) {
+      eventBus.$emit('savePark', parkName);
     }
   }
 }

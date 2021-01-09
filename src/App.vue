@@ -1,21 +1,17 @@
 <template>
   <div id="app">
     <TheHeader />
-    <router-link to="/" exact/>
-    <router-link to="/results/item-details" exact />
     <!-- make dynamic with :name from park object -->
-      <ResultsItemDetails @save:park='savePark' />
-    <!-- </router-link> -->
     <router-view/>
   </div>
 </template>
 
 <script>
 import TheHeader from './components/TheHeader.vue'
-import ResultsItemDetails from './components/ResultsItemDetails.vue'
+import { eventBus } from './main'
 
 export default {
-  components: { TheHeader, ResultsItemDetails },
+  components: { TheHeader },
   data() {
     return {
       savedParks: []
@@ -24,14 +20,13 @@ export default {
   provide() {
     return {
       savedParks: this.savedParks,
-      savePark: this.savePark
     }
   },
-  methods: {
-    savePark(newPark) {
-      this.savedParks = [...this.savedParks, newPark] 
-    }
-  }
+  created() {
+    eventBus.$on('savePark', (data) => {
+      this.savedParks.push(data);
+    })
+  },
 }
 </script>
 
