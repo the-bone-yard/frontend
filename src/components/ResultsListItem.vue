@@ -1,6 +1,6 @@
 <template>
   <section class="item-card">
-    <button @click="$emit('save:park', parkName)" class="save-button">
+    <button @click="savePark" class="save-button">
       SAVE
     </button>
     <h1>{{ result.name }}</h1>
@@ -11,7 +11,11 @@
 <script>
 export default {
   props: ['result'],
-  inject: ['savePark'],
+  methods: {
+    savePark() {
+      this.$store.commit('savePark', this.result.name)
+    }
+  }
 };
 </script>
 
