@@ -28,6 +28,9 @@ export default {
       this.savedParks.push(data);
     })
   },
+  mounted() {
+    this.showPosition()
+  },
   methods: {
     showPosition() {
       if(navigator.geolocation) {
