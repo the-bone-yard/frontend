@@ -3,7 +3,9 @@
     <h1>MyParks Page</h1>
     <h2 v-if="!savedParks.length">Save a park to view it here!</h2>
     <article v-else>
-      A saved park will display here!
+      <ol>
+        <li v-for="park in savedParks" :key="park">{{ park }}</li>
+      </ol>
     </article>
   </section>
 </template>
