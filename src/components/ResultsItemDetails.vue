@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { bus } from '../main'
+import { eventBus } from '../main'
 import { Splide, SplideSlide } from '@splidejs/vue-splide'
 import '@splidejs/splide/dist/css/themes/splide-sea-green.min.css';
 
@@ -33,7 +33,6 @@ export default {
     Splide,
     SplideSlide
   },
-  inject: ['savePark'],
   data() {
     return {
       options: {
@@ -63,7 +62,7 @@ export default {
   },
   methods: {
     favoritePark(parkName) {
-      bus.$emit('savePark', parkName);
+      eventBus.$emit('savePark', parkName);
     }
   }
 }

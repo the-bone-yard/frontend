@@ -7,7 +7,7 @@ Vue.config.productionTip = false;
 
 import * as VueGoogleMaps from 'vue2-google-maps';
 
-export const bus = new Vue();
+export const eventBus = new Vue();
 
 Vue.use(VueGoogleMaps, {
 	load: {
