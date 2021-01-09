@@ -24,10 +24,8 @@
 </template>
 
 <script>
-// import { eventBus } from '../main'
 import { Splide, SplideSlide } from '@splidejs/vue-splide'
 import '@splidejs/splide/dist/css/themes/splide-sea-green.min.css';
-import store from '../store'
 
 export default {
   components: {
@@ -63,7 +61,7 @@ export default {
   },
   methods: {
     savePark() {
-      store.commit('savePark', this.parkName)
+      this.$store.commit('savePark', this.parkName)
     }
   }
 }
