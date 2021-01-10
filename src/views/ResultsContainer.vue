@@ -5,7 +5,7 @@
     <keep-alive>
       <component 
         :is="selectedComponent" 
-        :searchResults="searchResults"></component>
+        :searchResults="this.$store.state.searchResults"></component>
     </keep-alive>
   </section>
 </template>
@@ -17,7 +17,6 @@ export default {
   data() {
     return {
       selectedComponent: "results-list",
-      searchResults: []
     };
   },
   components: {
