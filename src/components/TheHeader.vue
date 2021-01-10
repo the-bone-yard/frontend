@@ -21,12 +21,13 @@
 
 <style lang="scss" scoped>
 @import '../styles/_variables.scss';
+@import '../styles/_mixins.scss';
 section {
 	background-color: $dark-green;
 	filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.5));
 
 	.bone-yard-header {
-		display: flex;
+		@include customDisplayFlex();
 		justify-content: center;
 		align-items: center;
 
@@ -57,8 +58,7 @@ section {
 			padding: 0.5em;
 
 			&:hover {
-				background-color: #fff;
-				color: $dark-green;
+				@include white-button-hover;
 			}
 		}
 	}
