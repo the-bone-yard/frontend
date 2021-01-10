@@ -1,15 +1,19 @@
 <template>
   <div id="app">
     <TheHeader />
-    <router-view/>
+    <!-- make dynamic with :name from park object -->
+    <body-container>
+      <router-view/>
+    </body-container>
   </div>
 </template>
 
 <script>
 import TheHeader from './components/TheHeader.vue'
+import BodyContainer from './components/BodyContainer.vue'
 
 export default {
-  components: { TheHeader },
+  components: { TheHeader, BodyContainer },
   data() {
     return {
       
