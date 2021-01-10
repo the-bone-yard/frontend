@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import { getResults } from '../apiCalls.js'
 export default {
   data() {
     return {
@@ -39,8 +40,10 @@ export default {
       this.searchTerm = '';
       this.inputIsInvalid = false;
     },
-    searchByLocation() {
-      //functionality based on geolocation goes here
+    async searchByLocation() {
+      const results = await getResults()
+        .then(data => data)
+       this.$store.commit('storeResults', results)
     },
   },
 };
