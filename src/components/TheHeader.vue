@@ -58,7 +58,7 @@ section {
 			padding: 0.5em;
 
 			&:hover {
-				@include white-button-hover;
+				@include button-white-hover;
 			}
 		}
 	}
