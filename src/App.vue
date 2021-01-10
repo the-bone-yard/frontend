@@ -1,32 +1,21 @@
 <template>
   <div id="app">
     <TheHeader />
-    <!-- make dynamic with :name from park object -->
     <router-view/>
   </div>
 </template>
 
 <script>
 import TheHeader from './components/TheHeader.vue'
-import { eventBus } from './main'
 
 export default {
   components: { TheHeader },
   data() {
     return {
-      savedParks: [],
-      geolocation: ''
+      geolocation: null
     }
-  },
-  provide() {
-    return {
-      savedParks: this.savedParks,
-    }
-  },
-  created() {
-    eventBus.$on('savePark', (data) => {
-      this.savedParks.push(data);
-    })
+    //geolocation should probably stay local 
+    //until we determine if multiple components will need it
   },
   mounted() {
     this.showPosition()
@@ -37,9 +26,7 @@ export default {
         navigator.geolocation.getCurrentPosition(position => {
           this.geolocation = position;
         });
-      } else {
-        this.geolocation = null
-      }
+      } 
     } 
   }
 }
