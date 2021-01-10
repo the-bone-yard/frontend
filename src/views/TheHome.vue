@@ -18,14 +18,15 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 section {
-  margin: 1em;
-  background-color: #afeceb;
   padding: 2em;
-}
-.puppy-picture {
-  width: 15em;
+
+  .puppy-picture {
+  width: 100%;
   border-radius: 5%;
 }
+}
+
+
 </style>
