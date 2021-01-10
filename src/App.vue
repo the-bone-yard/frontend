@@ -28,7 +28,7 @@ export default {
 <style lang="scss">
 body,
 html {
-  height: 100%;
+  height: 100vh;
   padding: 0;
   margin: 0;
 }
@@ -38,6 +38,6 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  background-color: #d6eef2;
+  background-color: #afeceb;
 }
 </style>
