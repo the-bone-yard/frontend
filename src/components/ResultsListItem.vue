@@ -4,7 +4,7 @@
       <button @click="savePark" class="save-button">
         SAVE
       </button>
-      <router-link to='/results/item-details'>
+      <router-link :to="`/results/${result.name}`" >
         <button class='details-button'>
           DETAILS
         </button>
@@ -16,6 +16,7 @@
 </template>
 
 <script>
+
 export default {
   props: ['result'],
   methods: {
