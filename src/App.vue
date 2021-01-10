@@ -14,7 +14,8 @@ export default {
   components: { TheHeader },
   data() {
     return {
-      savedParks: []
+      savedParks: [],
+      geolocation: ''
     }
   },
   provide() {
@@ -27,6 +28,20 @@ export default {
       this.savedParks.push(data);
     })
   },
+  mounted() {
+    this.showPosition()
+  },
+  methods: {
+    showPosition() {
+      if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(position => {
+          this.geolocation = position;
+        });
+      } else {
+        this.geolocation = null
+      }
+    } 
+  }
 }
 </script>
 
