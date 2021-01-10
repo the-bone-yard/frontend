@@ -7,4 +7,10 @@ describe('FindPark', () => {
     const findPark = mount(FindPark);
     expect(findPark.exists()).toBe(true);
   });
+
+  it('should render a search button', () => {
+    const wrapper = mount(FindPark, {});
+    expect(wrapper.html()).toContain('Find a dog park near me!');
+    expect(wrapper.html()).toContain('Get Started - woof!');
+  });
 });
