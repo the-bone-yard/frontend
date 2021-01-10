@@ -72,8 +72,15 @@ export default {
 }
 
 button {
+  border-color: #174D4D;
   border-radius: 20%;
   padding: 1em;
+  background-color: #03363D;
+  color: white;
+
+  &:hover {
+    background-color: #03523D;
+  }
 }
 
 .disabled {
