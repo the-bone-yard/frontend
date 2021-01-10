@@ -4,12 +4,12 @@
       <button @click="savePark" class='button-save-park'>SAVE</button>
     </article>
     <article class='article-destination'>
-      <h1 class='detail-descriptor'>Destination: </h1>
-      <p>Address: </p>
+      <h1 class='detail-descriptor'>Destination: {{ park.name }} </h1>
+      <p>Address: {{ park.formatted_address }}</p>
     </article>
     <article class='article-description'>
-      <p>Open Now?</p>
-      <p>Rating: /5</p>
+      <p v-if="park.opening_hours.open_now">Open Now? {{ open }}</p>
+      <p>Rating: {{ park.rating }} / 5</p>
       <splide :options="options">
         <splide-slide v-for="(photo, i) in photos" :key="i" >
           <img :src="photo.src" :alt="'photo for ' + parkName" />
@@ -39,24 +39,34 @@ export default {
           width: 1000,
           gap: '1rem',
         },
-      photos: [
-          {
-            src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHGlnnbCP_rFQIQYvraw51_rFPpfuaq1to5A&usqp=CAU',
-            height: 500,
-            width: 500
-          },
-          {
-            src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpOWFPV2DlS6Qnu-ZNlIkA4Cpiwo3WsXpCww&usqp=CAU',
-            height: 500,
-            width: 500
-          },
-          {
-            src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHGlnnbCP_rFQIQYvraw51_rFPpfuaq1to5A&usqp=CAU',
-            height: 500,
-            width: 500
-          }
-        ],
-      parkName: 'Chatfield State Park'
+      parkName: this.$route.params.name,
+      // photos: [
+      //     {
+      //       src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHGlnnbCP_rFQIQYvraw51_rFPpfuaq1to5A&usqp=CAU',
+      //       height: 500,
+      //       width: 500
+      //     },
+      //     {
+      //       src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpOWFPV2DlS6Qnu-ZNlIkA4Cpiwo3WsXpCww&usqp=CAU',
+      //       height: 500,
+      //       width: 500
+      //     },
+      //     {
+      //       src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHGlnnbCP_rFQIQYvraw51_rFPpfuaq1to5A&usqp=CAU',
+      //       height: 500,
+      //       width: 500
+      //     }
+      //   ],
+    }
+  },
+  computed: {
+    park() {
+      return this.$store.state.searchResults.find(res => {
+          return res.name === this.parkName
+      })
+    },
+    open() {
+      return this.park.opening_hours.open_now === true ? 'Yes' : 'No'
     }
   },
   methods: {
