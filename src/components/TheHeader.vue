@@ -20,39 +20,45 @@
 </template>
 
 <style lang="scss" scoped>
-.bone-yard-header {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 1em;
+section {
+	background-color: #03363D;
+	color: white;
 
-	.bone-yard-logo {
-		width: 2.5em;
-		height: 100%;
-		margin-right: 1em;
+	.bone-yard-header {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.bone-yard-logo {
+			width: 2.5em;
+			height: 100%;
+			margin-right: 1em;
+		}
+
+		.bone-yard-font {
+			font-family: 'Potta One', cursive;
+			line-height: 1.2em;
+		}
+
+		.title-link {
+			text-decoration: none;
+			color: white;
+		}
 	}
 
-	.bone-yard-font {
-		font-family: 'Potta One', cursive;
-		line-height: 1.2em;
-	}
+	nav {
+		padding-bottom: .5rem;
 
-	.title-link {
-		text-decoration: none;
-		color: black;
-	}
-}
+		a {
+			margin-right: 0.7em;
+			text-decoration: none;
+			color: #fff;
+			padding: 0.5em;
 
-nav {
-	a {
-		margin-right: 0.7em;
-		text-decoration: none;
-		color: #03363d;
-		padding: 0.5em;
-
-		&:hover {
-			background-color: #03363d;
-			color: #f8f9f9;
+			&:hover {
+				background-color: #fff;
+				color: #03363d;
+			}
 		}
 	}
 }
