@@ -5,11 +5,15 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    savedParks: []
+    savedParks: [],
+    searchResults: []
   },
   mutations: {
     savePark (state, newPark) {
       state.savedParks = [...state.savedParks, newPark]
+    },
+    storeResults (state, results) {
+      state.searchResults = results
     }
   },
   actions: {
