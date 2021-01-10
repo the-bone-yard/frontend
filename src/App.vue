@@ -47,4 +47,8 @@ html {
   text-align: center;
   background-color: #afeceb;
 }
+
+.error {
+  color: red;
+}
 </style>
