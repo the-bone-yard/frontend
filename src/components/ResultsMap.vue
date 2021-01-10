@@ -43,7 +43,6 @@ export default {
 					lng: findLocation.geometry.location.lng
 				};
 			}
-			// make helper method that will open details of park they clicked on
 		},
 		handleMarkerClick(name) {
 			this.centerMapToClickedLocation(name);
