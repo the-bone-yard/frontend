@@ -4,22 +4,23 @@
       <button @click="savePark" class='button-save-park'>SAVE</button>
     </article>
     <article class='article-destination'>
-      <h1 class='detail-descriptor'>Destination: {{ park.name }} </h1>
+      <h1 class='detail-descriptor'>{{ park.name }} </h1>
       <p>Address: {{ park.formatted_address }}</p>
     </article>
     <article class='article-description'>
       <p v-if="park.opening_hours.open_now">Open Now? {{ open }}</p>
       <p>Rating: {{ park.rating }} / 5</p>
       <splide :options="options">
-        <splide-slide v-for="(photo, i) in photos" :key="i" >
-          <img :src="photo.src" :alt="'photo for ' + parkName" />
+        <splide-slide v-for="(photo, i) in park.photos" :key="i" >
+          <article>{{ photo.html_attributions[0] }}</article>
+          <!-- <img :src="photo.html_attributes[0]" :alt="'photo for ' + parkName" /> -->
         </splide-slide>
       </splide>
     </article>
     <button class='button-get-directions'>Get Directions</button>
     <!-- button is not functional yet - need to get a directions component w/ router -->
     <h2>Not the right park for your pup?</h2>
-    <router-link to='/'><button>search again</button></router-link>
+    <router-link to='/'><button>Search Again</button></router-link>
   </section>
 </template>
 
