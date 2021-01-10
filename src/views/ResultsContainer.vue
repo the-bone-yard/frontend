@@ -1,7 +1,11 @@
 <template>
   <section>
-    <button @click="setSelectedComponent('results-list')">List View</button>
-    <button @click="setSelectedComponent('results-map')">Map View</button>
+    <button 
+        :class="selectedComponent === 'results-list' ? 'active' : null"
+        @click="setSelectedComponent('results-list')">List View</button>
+    <button 
+        :class="selectedComponent === 'results-map' ? 'active' : null"
+        @click="setSelectedComponent('results-map')">Map View</button>
     <keep-alive>
       <component 
         :is="selectedComponent" 
@@ -31,4 +35,24 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@import '../styles/_variables.scss';
+@import '../styles/_mixins.scss';
+
+button {
+    @include button-dark-green;
+    height: 2em;
+    padding: .4em;
+    margin: .8em;
+    width: 7em;
+    font-size: .8em;
+
+    &:hover {
+        @include button-white-hover;
+    }
+}
+
+.active {
+    @include button-white-hover;
+}
+</style>
