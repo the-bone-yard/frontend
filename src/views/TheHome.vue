@@ -23,9 +23,9 @@ section {
   padding: 2em;
 
   .puppy-picture {
-  width: 100%;
-  border-radius: 5%;
-}
+    width: 100%;
+    border-radius: 5%;
+  }
 }
 
 

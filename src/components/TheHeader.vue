@@ -20,8 +20,9 @@
 </template>
 
 <style lang="scss" scoped>
+@import '../styles/_variables.scss';
 section {
-	background-color: #03363D;
+	background-color: $dark-green;
 	filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.5));
 
 	.bone-yard-header {
@@ -57,7 +58,7 @@ section {
 
 			&:hover {
 				background-color: #fff;
-				color: #03363d;
+				color: $dark-green;
 			}
 		}
 	}
