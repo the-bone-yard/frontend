@@ -19,14 +19,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-section {
-  padding: 2em;
-
-  .puppy-picture {
-    width: 100%;
-    border-radius: 5%;
-  }
+.puppy-picture {
+  width: 100%;
+  border-radius: 5%;
 }
-
-
 </style>
