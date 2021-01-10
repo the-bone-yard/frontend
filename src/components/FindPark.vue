@@ -64,9 +64,9 @@ export default {
 
 <style lang="scss" scoped>
 @import '../styles/_variables.scss';
+@import '../styles/_mixins.scss';
 section {
-	display: flex;
-	flex-direction: column;
+	@include customDisplayFlex(0, 0, column);
 	align-items: center;
   justify-content: center;
 
