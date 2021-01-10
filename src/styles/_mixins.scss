@@ -13,7 +13,14 @@
   }
 }
 
-@mixin white-button-hover {
+@mixin button-white-hover {
   background-color: #fff;
   color: $dark-green;
+  border: 0;
+}
+
+@mixin button-dark-green {
+  background-color: $dark-green;
+  color: #fff;
+  border: 0;
 }
