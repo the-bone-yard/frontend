@@ -13,14 +13,16 @@
       </router-link>
     </article>
     <nav>
-      <router-link to="/my-parks">My Parks</router-link> <br />
+      <router-link to="/my-parks">My Parks</router-link>
+      <router-link to="/results">Search For Parks</router-link>
     </nav>
   </section>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .bone-yard-font {
   font-family: 'Potta One', cursive;
+  line-height: 1.2em;
 }
 
 .bone-yard-logo {
@@ -39,5 +41,19 @@
 .title-link {
   text-decoration: none;
   color: black;
+}
+
+nav {
+  a {
+    margin-right: .7em;
+    text-decoration: none;
+    color: #03363D;
+    padding: .5em;
+
+    &:hover {
+      background-color: #03363D;
+      color: #F8F9F9;
+    }
+  }
 }
 </style>
