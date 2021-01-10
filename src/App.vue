@@ -14,6 +14,8 @@ export default {
     return {
       geolocation: null
     }
+    //geolocation should probably stay local 
+    //until we determine if multiple components will need it
   },
   mounted() {
     this.showPosition()
