@@ -6,7 +6,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     savedParks: [],
-    searchResults: []
+    searchResults: [],
+    geolocation: null
   },
   mutations: {
     savePark (state, newPark) {
@@ -14,6 +15,9 @@ export default new Vuex.Store({
     },
     storeResults (state, results) {
       state.searchResults = results
+    },
+    updateGeolocation (state, geolocation) {
+      state.geolocation = geolocation
     }
   },
   actions: {
