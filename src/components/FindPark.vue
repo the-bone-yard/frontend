@@ -41,7 +41,7 @@ export default {
       this.inputIsInvalid = false;
     },
     async searchByLocation() {
-      const results = await getResults()
+      const results = await getResults(this.$store.state.geolocation.coords)
         .then(data => data)
        this.$store.commit('storeResults', results)
     },
