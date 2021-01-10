@@ -22,7 +22,7 @@
 <style lang="scss" scoped>
 section {
 	background-color: #03363D;
-	color: white;
+	filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.5));
 
 	.bone-yard-header {
 		display: flex;
