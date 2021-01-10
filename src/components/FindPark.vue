@@ -1,7 +1,11 @@
 <template>
   <section>
     <h2>Let's Go Play!</h2>
-    <button @click="searchByLocation">Find a dog park near me!</button>
+    <router-link to='/results'>
+      <button @click="searchByLocation">
+        Find a dog park near me!
+      </button>
+    </router-link>
     <h3>--Or--</h3>
     <input
       class="search-input"
@@ -9,9 +13,11 @@
       placeholder="Search by name, city or zip code"
       ref="enteredValue"
     />
-    <button class="search-button" @click="setSearchTerm">
+    <router-link to='/results'>
+      <button class="search-button" @click="setSearchTerm">
       Get Started - woof!
-    </button>
+      </button>
+    </router-link>
     <p v-if="inputIsInvalid">Please enter a park name, city, or zip code</p>
   </section>
 </template>
