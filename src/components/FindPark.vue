@@ -63,28 +63,36 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.search-input {
-  margin: 10px;
-  width: 250px;
-  height: 20px;
-  border-radius: 20%;
-  padding: 1em;
-}
+@import '../styles/_variables.scss';
+section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+  justify-content: center;
 
-.invalid {
-  border: 2px solid red;
-}
-
-button {
-  border-color: #174D4D;
-  border-radius: 20%;
-  padding: 1em;
-  background-color: #03363D;
-  color: white;
-
-  &:hover {
-    background-color: #03523D;
+  .invalid {
+    border: 2px solid red;
   }
+
+  .search-input {
+    margin: 10px;
+    width: 250px;
+    height: 20px;
+    border-radius: 20%;
+    padding: 1em;
+  }
+
+	button {
+    border-color: $dark-green-border;
+		border-radius: 20%;
+		padding: 1em;
+    background-color: $dark-green;
+    color: white;
+
+    &:hover {
+      background-color: $light-green-hover;
+    }
+	}
 }
 
 .disabled {
