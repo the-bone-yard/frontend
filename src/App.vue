@@ -1,15 +1,18 @@
 <template>
   <div id="app">
     <TheHeader />
-    <router-view/>
+    <body-container>
+      <router-view/>
+    </body-container>
   </div>
 </template>
 
 <script>
 import TheHeader from './components/TheHeader.vue'
+import BodyContainer from './components/BodyContainer.vue'
 
 export default {
-  components: { TheHeader },
+  components: { TheHeader, BodyContainer },
   mounted() {
     this.showPosition()
   },
