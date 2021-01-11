@@ -24,3 +24,15 @@
   color: #fff;
   border: 0;
 }
+
+@mixin button-main-style {
+  border-color: $dark-green-border;
+  border-radius: 20%;
+  padding: 1em;
+  background-color: $dark-green;
+  color: white;
+
+  &:hover {
+    background-color: $light-green-hover;
+  }
+}
