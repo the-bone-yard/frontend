@@ -1,5 +1,5 @@
 <template>
-  <section class='results-list'>
+  <section class='results-list' :class="{ loading: !noResults }">
     <h4 v-if="!$store.state.searchResults.length">
       <h5> {{ message }}</h5>
       <FindPark v-if="noResults" />
@@ -42,3 +42,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.loading {
+  cursor:  wait;
+}
+</style>
