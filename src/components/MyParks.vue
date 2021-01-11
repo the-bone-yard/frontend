@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h1>MyParks Page</h1>
+    <h1>My Saved Parks</h1>
     <h2 v-if="!$store.state.savedParks.length">Save a park to view it here!</h2>
     <article v-else>
       <ol>
