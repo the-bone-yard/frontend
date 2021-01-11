@@ -12,12 +12,14 @@
     <button class="search-button" @click="setSearchTerm">
       Get Started - woof!
     </button>
-    <p v-if="inputIsInvalid">Please enter a park name, city, or zip code</p>
+    <p class="error-message" v-if="inputIsInvalid">
+      Please enter a park name, city, or zip code
+    </p>
   </section>
 </template>
 
 <script>
-import { getResults } from '../apiCalls.js'
+import { getResults } from '../apiCalls.js';
 export default {
   data() {
     return {
@@ -41,9 +43,10 @@ export default {
       this.inputIsInvalid = false;
     },
     async searchByLocation() {
-      const results = await getResults(this.$store.state.geolocation.coords)
-        .then(data => data)
-       this.$store.commit('storeResults', results)
+      const results = await getResults(
+        this.$store.state.geolocation.coords
+      ).then((data) => data);
+      this.$store.commit('storeResults', results);
     },
   },
 };
@@ -60,5 +63,10 @@ export default {
 button {
   border-radius: 20%;
   padding: 1em;
+}
+
+.error-message {
+  font-weight: bold;
+  color: red;
 }
 </style>
