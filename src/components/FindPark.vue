@@ -1,7 +1,12 @@
 <template>
   <section>
     <h2>Let's Go Play!</h2>
-    <button @click="searchByLocation">Find a dog park near me!</button>
+    <button
+      :class="{ disabled: !this.$store.state.geolocation }"
+      @click="searchByLocation"
+    >
+      Find a dog park near me!
+    </button>
     <h3>--Or--</h3>
     <input
       class="search-input"
@@ -69,6 +74,10 @@ export default {
 button {
   border-radius: 20%;
   padding: 1em;
+}
+
+.disabled {
+  background-color: #ccc;
 }
 
 .error-message {
