@@ -1,12 +1,14 @@
 <template>
   <section>
     <h2>Let's Go Play!</h2>
-    <button
-      :class="{ disabled: !this.$store.state.geolocation }"
-      @click="searchByLocation"
-    >
-      Find a dog park near me!
-    </button>
+    <router-link to='/results'>
+      <button
+        :class="{ disabled: !this.$store.state.geolocation }"
+        @click="searchByLocation"
+      >
+        Find a dog park near me!
+      </button>
+    </router-link>
     <h3>--Or--</h3>
     <input
       class="search-input"
@@ -15,9 +17,11 @@
       placeholder="Search by name, city or zip code"
       ref="enteredValue"
     />
-    <button class="search-button" @click="setSearchTerm">
-      Get Started - woof!
-    </button>
+    <router-link to='/results'>
+      <button class="search-button" @click="setSearchTerm">
+        Get Started - woof!
+      </button>
+    </router-link>
     <p class="error-message" v-if="inputIsInvalid">
       Please enter a park name, city, or zip code
     </p>

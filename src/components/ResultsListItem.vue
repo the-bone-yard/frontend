@@ -1,14 +1,22 @@
 <template>
   <section class="item-card">
-    <button @click="savePark" class="save-button">
-      SAVE
-    </button>
+    <article class='buttons-article'>
+      <button @click="savePark" class="save-button">
+        SAVE
+      </button>
+      <router-link :to="`/results/${result.name}`" >
+        <button class='details-button'>
+          DETAILS
+        </button>
+      </router-link>
+    </article>
     <h1>{{ result.name }}</h1>
     <h1>{{ result.formatted_address }}</h1>
   </section>
 </template>
 
 <script>
+
 export default {
   props: ['result'],
   methods: {
@@ -21,7 +29,6 @@ export default {
 
 <style>
 .item-card {
-  position: relative;
   border-style: solid;
 }
 
@@ -29,5 +36,16 @@ export default {
   position: absolute;
   top: 1em;
   right: 1em;
+}
+
+.details-button {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+}
+
+.buttons-article {
+  position: relative;
+  display: flex;
 }
 </style>

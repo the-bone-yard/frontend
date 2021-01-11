@@ -19,7 +19,7 @@ const routes = [
     component: ResultsContainer,
   },
   {
-    path: '/results/item-details',
+    path: '/results/:name',
     name: 'ResultsItemDetails',
     component: ResultsItemDetails
   },

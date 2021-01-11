@@ -4,69 +4,49 @@
       <button @click="savePark" class='button-save-park'>SAVE</button>
     </article>
     <article class='article-destination'>
-      <h1 class='detail-descriptor'>Destination: </h1>
-      <p>Address: </p>
+      <h1 class='detail-descriptor'>{{ park.name }} </h1>
+      <p>Address: {{ park.formatted_address }}</p>
     </article>
     <article class='article-description'>
-      <p>Open Now?</p>
-      <p>Rating: /5</p>
-      <splide :options="options">
-        <splide-slide v-for="(photo, i) in photos" :key="i" >
-          <img :src="photo.src" :alt="'photo for ' + parkName" />
-        </splide-slide>
-      </splide>
+      <p v-if="park.opening_hours.open_now">Open Now? {{ open }}</p>
+      <p>Rating: {{ park.rating }} / 5</p>
     </article>
     <button class='button-get-directions'>Get Directions</button>
     <!-- button is not functional yet - need to get a directions component w/ router -->
     <h2>Not the right park for your pup?</h2>
-    <router-link to='/'><button>search again</button></router-link>
+    <router-link to='/'><button>Search Again</button></router-link>
   </section>
 </template>
 
 <script>
-import { Splide, SplideSlide } from '@splidejs/vue-splide'
-import '@splidejs/splide/dist/css/themes/splide-sea-green.min.css';
+// import { getPhoto } from '../apiCalls.js'
 
 export default {
-  components: {
-    Splide,
-    SplideSlide
-  },
   data() {
     return {
-      options: {
-          rewind: true,
-          width: 1000,
-          gap: '1rem',
-        },
-      photos: [
-          {
-            src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHGlnnbCP_rFQIQYvraw51_rFPpfuaq1to5A&usqp=CAU',
-            height: 500,
-            width: 500
-          },
-          {
-            src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpOWFPV2DlS6Qnu-ZNlIkA4Cpiwo3WsXpCww&usqp=CAU',
-            height: 500,
-            width: 500
-          },
-          {
-            src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHGlnnbCP_rFQIQYvraw51_rFPpfuaq1to5A&usqp=CAU',
-            height: 500,
-            width: 500
-          }
-        ],
-      parkName: 'Chatfield State Park'
+      parkName: this.$route.params.name
+    }
+  },
+  computed: {
+    park() {
+      return this.$store.state.searchResults.find(res => {
+          return res.name === this.parkName
+      })
+    },
+    open() {
+      return this.park.opening_hours.open_now === true ? 'Yes' : 'No'
     }
   },
   methods: {
     savePark() {
       this.$store.commit('savePark', this.parkName)
     }
-  }
+  },
+  // mounted() {
+  //   getPhoto(this.park.photos[0].photo_reference)
+  //   .then(data => console.log(data))
+  // }
 }
-// will need to get any details about park from props - passed from ResultsContainer
-// specifically for parkName, photos, rating, open, address, etc.
 </script>
 
 <style lang="scss" scoped>

@@ -10,13 +10,6 @@ import TheHeader from './components/TheHeader.vue'
 
 export default {
   components: { TheHeader },
-  data() {
-    return {
-      
-    }
-    //geolocation should probably stay local 
-    //until we determine if multiple components will need it
-  },
   mounted() {
     this.showPosition()
   },
