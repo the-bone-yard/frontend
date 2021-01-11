@@ -1,11 +1,13 @@
 <template>
   <section>
-    <button 
-        :class="selectedComponent === 'results-list' ? 'active' : null"
-        @click="setSelectedComponent('results-list')">List View</button>
-    <button 
-        :class="selectedComponent === 'results-map' ? 'active' : null"
-        @click="setSelectedComponent('results-map')">Map View</button>
+    <section v-if="$store.state.searchResults.length">
+      <button 
+          :class="selectedComponent === 'results-list' ? 'active' : null"
+          @click="setSelectedComponent('results-list')">List View</button>
+      <button 
+          :class="selectedComponent === 'results-map' ? 'active' : null"
+          @click="setSelectedComponent('results-map')">Map View</button>
+    </section>
     <keep-alive>
       <component 
         :is="selectedComponent" 
