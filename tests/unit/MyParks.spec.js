@@ -75,5 +75,10 @@ describe('MyParks.vue', () => {
     expect(getAllPTags.at(1).text()).toBe('Rating: 4.4');
     expect(getAllBtnTags.at(0).text()).toBe('UNSAVE');
     expect(getAllBtnTags.at(1).text()).toBe('DETAILS');
-	});
+  });
+  
+  test('should render a message when a user has no parks saved', () => {
+    const wrapper = mount(MyParks, { store, localVue });
+    expect(wrapper.find('h2').text()).toBe('Save a park to view it here!');
+  });
 });
