@@ -63,7 +63,7 @@ export default {
     @include customDisplayFlex(0, 0);
 
     .details-button {
-      margin-left: .5em;
+      margin-left: 1em;
     }
   }
 
