@@ -14,10 +14,3 @@ export default {
   components: { ResultsListItem }
 }
 </script>
-
-<style>
-  .results-list {
-    margin: auto;
-    width: 70%;
-  }
-</style>
