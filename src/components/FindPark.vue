@@ -5,6 +5,7 @@
     <h3>--Or--</h3>
     <input
       class="search-input"
+      :class="{ invalid: inputIsInvalid }"
       type="text"
       placeholder="Search by name, city or zip code"
       ref="enteredValue"
@@ -60,6 +61,11 @@ export default {
   border-radius: 20%;
   padding: 1em;
 }
+
+.invalid {
+  border: 2px solid red;
+}
+
 button {
   border-radius: 20%;
   padding: 1em;
