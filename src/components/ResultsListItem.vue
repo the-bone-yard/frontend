@@ -11,7 +11,7 @@
       <button v-else @click="unsavePark" class="unsave-button">
         UNSAVE
       </button>
-      <router-link v-if="this.$route.path !== `/results/${result.name}`" :to="`/results/${result.name}`" >
+      <router-link :to="`/results/${result.name}`" >
         <button class='details-button'>
           DETAILS
         </button>
