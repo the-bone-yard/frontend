@@ -1,23 +1,20 @@
 <template>
   <section class='results-list'>
-    <h1>Result List</h1>
-    <section :key='i' v-for='(result, i) in searchResults'>
+    <h4 v-if="!$store.state.searchResults.length">
+      <h5>No results found</h5>
+      <FindPark />
+    </h4>
+    <section v-else :key='i' v-for='(result, i) in searchResults'>
       <results-list-item :result='result'></results-list-item>
     </section>
   </section>
 </template>
 
 <script>
-import ResultsListItem from './ResultsListItem.vue'
+import ResultsListItem from './ResultsListItem.vue';
+import FindPark from './FindPark.vue';
 export default {
   props: ['searchResults'],
-  components: { ResultsListItem }
+  components: { ResultsListItem, FindPark }
 }
 </script>
-
-<style>
-  .results-list {
-    margin: auto;
-    width: 70%;
-  }
-</style>

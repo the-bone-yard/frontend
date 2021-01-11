@@ -50,6 +50,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../styles/_mixins.scss';
   .article-button {
     display: flex;
     justify-content: flex-end;
@@ -57,15 +58,6 @@ export default {
   }
 
   button { 
-    background-color: #CBE4E3;
-    border-radius: 20%;
-    padding: 1em;
-    margin: 0.5em;
-
-    &:hover {
-      cursor: pointer;
-      box-shadow: 5px 5px 5px rgb(73, 70, 70);
-      background-color: #B1ECEA;
-    }
+    @include button-main-style
   }
 </style>

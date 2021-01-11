@@ -1,0 +1,40 @@
+@import './variables';
+
+@mixin customDisplayFlex($padding: 0, $margin: 0, $direction: row) {
+  display: flex;
+  flex-direction: $direction;
+
+  @if $padding != 0 {
+    padding: $padding;
+  }
+
+  @if $margin != 0 {
+    margin: $margin;
+  }
+}
+
+@mixin button-white-hover {
+  background-color: #fff;
+  color: $dark-green;
+  border: 0;
+}
+
+@mixin button-dark-green {
+  background-color: $dark-green;
+  color: #fff;
+  border: 0;
+}
+
+@mixin button-main-style {
+  border-color: $dark-green-border;
+  border-radius: 20%;
+  padding: 1em;
+  background-color: $dark-green;
+  color: white;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $light-green-hover;
+    box-shadow: 5px 5px 5px rgb(73, 70, 70);
+  }
+}

@@ -1,17 +1,22 @@
 <template>
   <section class="item-card">
-    <article class='buttons-article'>
-      <button @click="savePark" class="save-button">
+    <h1>{{ result.name }}</h1>
+    <h1>{{ result.formatted_address }}</h1>
+    <p>This park is {{ result.opening_hours.open_now ? 'open' : 'closed' }}</p>
+    <p>Rating: {{ result.rating }}</p>
+    <section class="item-card-bottom">
+      <button v-if="this.$route.path !== '/my-parks'" @click="savePark" class="save-button">
         SAVE
+      </button>
+      <button v-else @click="unsavePark" class="unsave-button">
+        UNSAVE
       </button>
       <router-link :to="`/results/${result.name}`" >
         <button class='details-button'>
           DETAILS
         </button>
       </router-link>
-    </article>
-    <h1>{{ result.name }}</h1>
-    <h1>{{ result.formatted_address }}</h1>
+    </section>
   </section>
 </template>
 
@@ -21,31 +26,51 @@ export default {
   props: ['result'],
   methods: {
     savePark() {
-      this.$store.commit('savePark', this.result.name)
+      this.$store.commit('savePark', this.result)
+    },
+    unsavePark() {
+      // implement code to unsave parks here
     }
-  }
+  },
 };
 </script>
 
-<style>
+<style lang="scss">
+@import '../styles/_mixins.scss';
 .item-card {
-  border-style: solid;
-}
+  @include customDisplayFlex(.8em, 1.5em, column);
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: .4em;
+  filter: drop-shadow(0.2em 0.2em 0.2em rgba(0, 0, 0, 0.75));
 
-.save-button {
-  position: absolute;
-  top: 1em;
-  right: 1em;
-}
+  :first-child {
+    margin-top: 0;
+  }
 
-.details-button {
-  position: absolute;
-  top: 1em;
-  left: 1em;
-}
+  h1 {
+    font-size: .8em;
+    margin: .7em 0;
+  }
 
-.buttons-article {
-  position: relative;
-  display: flex;
+  p {
+    font-size: .8em;
+    margin: 0;
+  }
+
+  .item-card-bottom {
+    @include customDisplayFlex(0, 0);
+
+    .details-button {
+      margin-left: 1em;
+    }
+  }
+
+  .save-button, .details-button, .unsave-button {
+    @include button-main-style;  
+    margin-top: .7em;
+    width: 7em;
+  }
 }
 </style>
