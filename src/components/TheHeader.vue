@@ -13,8 +13,9 @@
 			</router-link>
 		</article>
 		<nav>
+			<router-link to="/">Home</router-link>
 			<router-link to="/my-parks">My Parks</router-link>
-			<router-link to="/results">Search For Parks</router-link>
+			<router-link to="/results">View Results</router-link>
 		</nav>
 	</section>
 </template>
