@@ -12,9 +12,14 @@
 				:position="m.geometry.location"
 				:clickable="true"
 				:draggable="false"
-				@click="handleMarkerClick(m.name)"
+				@click="handleMarkerClick($event, m)"
 			/>
-			
+			<GmapMarker v-if="this.selectedMarker"
+				:position="this.selectedMarker.geometry.location"
+				:clickable="false"
+				:draggable="false"
+				icon="https://www.google.com/mapfiles/marker_green.png"
+			/>
 		</GmapMap>
 		<results-list-item :result="this.selectedMarker"></results-list-item>
 	</section>
@@ -31,9 +36,9 @@ export default {
 			centerMap: {
 				lat: 40, lng: -105.0465427
 			},
-			selectedMarker: {}
-    }
-  },
+			selectedMarker: ""
+		}
+	},
   methods: {
     centerMapToClickedLocation(name) {
 			const findLocation = this.markers.find(loc => loc.name === name);
@@ -44,9 +49,9 @@ export default {
 				};
 			}
 		},
-		handleMarkerClick(name) {
-			this.centerMapToClickedLocation(name);
-			this.setSelectedMarker(name);
+		handleMarkerClick(event, marker) {
+			this.centerMapToClickedLocation(marker.name);
+			this.setSelectedMarker(marker.name);
 		},
 		setSelectedMarker(name) {
 			this.selectedMarker = this.markers.find(marker => name === marker.name)
