@@ -34,7 +34,8 @@ export default {
     return {
 			markers: this.searchResults,
 			centerMap: {
-				lat: 40, lng: -105.0465427
+				lat: this.$store.state.geolocation.coords.latitude, 
+				lng: this.$store.state.geolocation.coords.longitude
 			},
 			selectedMarker: ""
 		}
