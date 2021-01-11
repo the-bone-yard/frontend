@@ -4,8 +4,11 @@
     <h1>{{ result.formatted_address }}</h1>
     <p>This park is {{ result.opening_hours.open_now ? 'open' : 'closed' }}</p>
     <p>Rating: {{ result.rating }}</p>
-    <button @click="savePark" class="save-button">
+    <button v-if="this.$route.path !== '/my-parks'" @click="savePark" class="save-button">
       SAVE THIS PARK
+    </button>
+    <button v-else @click="unsavePark" class="unsave-button">
+      UNSAVE THIS PARK
     </button>
   </section>
 </template>
@@ -15,9 +18,12 @@ export default {
   props: ['result'],
   methods: {
     savePark() {
-      this.$store.commit('savePark', this.result.name)
+      this.$store.commit('savePark', this.result)
+    },
+    unsavePark() {
+      // implement code to unsave parks here
     }
-  }
+  },
 };
 </script>
 
@@ -45,7 +51,7 @@ export default {
     margin: 0;
   }
 
-  .save-button {
+  .save-button, .unsave-button {
     @include button-main-style;  
     margin-top: .7em;
   }
