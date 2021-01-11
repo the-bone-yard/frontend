@@ -12,19 +12,15 @@
     <h3>--Or--</h3>
     <input
       class="search-input"
-      :class="{ invalid: inputIsInvalid }"
       type="text"
-      placeholder="Search by name, city or zip code"
-      ref="enteredValue"
+      placeholder="Enter name, city or zip code to search"
+      v-model="searchTerm"
     />
-    <router-link to='/results'>
-      <button class="search-button" @click="setSearchTerm">
+    <router-link v-if="searchTerm" to='/results'>
+      <button class="search-button" @click="search">
         Get Started - woof!
       </button>
     </router-link>
-    <p class="error-message" v-if="inputIsInvalid">
-      Please enter a park name, city, or zip code
-    </p>
   </section>
 </template>
 
@@ -34,23 +30,12 @@ export default {
   data() {
     return {
       searchTerm: '',
-      inputIsInvalid: false,
     };
   },
   methods: {
-    setSearchTerm() {
-      const enteredValue = this.$refs.enteredValue.value;
-      if (enteredValue === '') {
-        this.inputIsInvalid = true;
-      } else {
-        this.searchTerm = enteredValue;
-        this.search(this.searchTerm);
-      }
-    },
     search() {
       //functionality for search goes here...
       this.searchTerm = '';
-      this.inputIsInvalid = false;
     },
     async searchByLocation() {
       const results = await getResults(
@@ -63,16 +48,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../styles/_variables.scss';
 @import '../styles/_mixins.scss';
 section {
 	@include customDisplayFlex(0, 0, column);
 	align-items: center;
   justify-content: center;
-
-  .invalid {
-    border: 2px solid red;
-  }
 
   .search-input {
     margin: 10px;
@@ -85,14 +65,5 @@ section {
 	button {
     @include button-main-style
 	}
-}
-
-.disabled {
-  background-color: #ccc;
-}
-
-.error-message {
-  font-weight: bold;
-  color: red;
 }
 </style>
