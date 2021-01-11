@@ -22,6 +22,7 @@ describe('MyParks.vue', () => {
 		const wrapper = mount(MyParks, { store, localVue });
 		expect(wrapper.exists()).toBe(true);
 		expect(wrapper.find('section').isVisible()).toBeTruthy();
+		expect(wrapper.find('h1').text()).toBe('My Saved Parks')
 	});
 
 	test('should render a saved park to the screen', () => {
