@@ -2,28 +2,34 @@
   <section>
     <h2>Let's Go Play!</h2>
     <router-link to='/results'>
-      <button @click="searchByLocation">
+      <button
+        :class="{ disabled: !this.$store.state.geolocation }"
+        @click="searchByLocation"
+      >
         Find a dog park near me!
       </button>
     </router-link>
     <h3>--Or--</h3>
     <input
       class="search-input"
+      :class="{ invalid: inputIsInvalid }"
       type="text"
       placeholder="Search by name, city or zip code"
       ref="enteredValue"
     />
     <router-link to='/results'>
       <button class="search-button" @click="setSearchTerm">
-      Get Started - woof!
+        Get Started - woof!
       </button>
     </router-link>
-    <p v-if="inputIsInvalid">Please enter a park name, city, or zip code</p>
+    <p class="error-message" v-if="inputIsInvalid">
+      Please enter a park name, city, or zip code
+    </p>
   </section>
 </template>
 
 <script>
-import { getResults } from '../apiCalls.js'
+import { getResults } from '../apiCalls.js';
 export default {
   data() {
     return {
@@ -47,9 +53,10 @@ export default {
       this.inputIsInvalid = false;
     },
     async searchByLocation() {
-      const results = await getResults(this.$store.state.geolocation.coords)
-        .then(data => data)
-       this.$store.commit('storeResults', results)
+      const results = await getResults(
+        this.$store.state.geolocation.coords
+      ).then((data) => data);
+      this.$store.commit('storeResults', results);
     },
   },
 };
@@ -63,8 +70,22 @@ export default {
   border-radius: 20%;
   padding: 1em;
 }
+
+.invalid {
+  border: 2px solid red;
+}
+
 button {
   border-radius: 20%;
   padding: 1em;
+}
+
+.disabled {
+  background-color: #ccc;
+}
+
+.error-message {
+  font-weight: bold;
+  color: red;
 }
 </style>
