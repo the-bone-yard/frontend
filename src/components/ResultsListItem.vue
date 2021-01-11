@@ -1,10 +1,12 @@
 <template>
   <section class="item-card">
-    <button @click="savePark" class="save-button">
-      SAVE
-    </button>
     <h1>{{ result.name }}</h1>
     <h1>{{ result.formatted_address }}</h1>
+    <p>This park is {{ result.opening_hours.open_now ? 'open' : 'closed' }}</p>
+    <p>Rating: {{ result.rating }}</p>
+    <button @click="savePark" class="save-button">
+      SAVE THIS PARK
+    </button>
   </section>
 </template>
 
@@ -19,15 +21,34 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+@import '../styles/_mixins.scss';
 .item-card {
-  position: relative;
-  border-style: solid;
+  @include customDisplayFlex(.8em, 1.5em, column);
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: .4em;
+  filter: drop-shadow(0.2em 0.2em 0.2em rgba(0, 0, 0, 0.75));
+
+  :first-child {
+    margin-top: 0;
+  }
+
+  h1 {
+    font-size: .8em;
+    margin: .7em 0;
+  }
+
+  p {
+    font-size: .8em;
+    margin: 0;
+  }
+
+  .save-button {
+    @include button-main-style;  
+    margin-top: .7em;
+  }
 }
 
-.save-button {
-  position: absolute;
-  top: 1em;
-  right: 1em;
-}
 </style>
