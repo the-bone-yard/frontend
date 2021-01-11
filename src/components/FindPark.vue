@@ -83,15 +83,7 @@ section {
   }
 
 	button {
-    border-color: $dark-green-border;
-		border-radius: 20%;
-		padding: 1em;
-    background-color: $dark-green;
-    color: white;
-
-    &:hover {
-      background-color: $light-green-hover;
-    }
+    @include button-main-style
 	}
 }
 
