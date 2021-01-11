@@ -5,10 +5,13 @@
     <p>This park is {{ result.opening_hours.open_now ? 'open' : 'closed' }}</p>
     <p>Rating: {{ result.rating }}</p>
     <section class="item-card-bottom">
-      <button @click="savePark" class="save-button">
+      <button v-if="this.$route.path !== '/my-parks'" @click="savePark" class="save-button">
         SAVE
       </button>
-      <router-link :to="`/results/${result.name}`" >
+      <button v-else @click="unsavePark" class="unsave-button">
+        UNSAVE
+      </button>
+      <router-link v-if="this.$route.path !== `/results/${result.name}`" :to="`/results/${result.name}`" >
         <button class='details-button'>
           DETAILS
         </button>
@@ -23,9 +26,12 @@ export default {
   props: ['result'],
   methods: {
     savePark() {
-      this.$store.commit('savePark', this.result.name)
+      this.$store.commit('savePark', this.result)
+    },
+    unsavePark() {
+      // implement code to unsave parks here
     }
-  }
+  },
 };
 </script>
 
@@ -61,7 +67,7 @@ export default {
     }
   }
 
-  .save-button, .details-button {
+  .save-button, .details-button, .unsave-button {
     @include button-main-style;  
     margin-top: .7em;
     width: 7em;
