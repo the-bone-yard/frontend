@@ -10,7 +10,7 @@
     <article class='article-description'>
       <p>{{ open }}</p>
       <p>Rating: {{ park.rating }} / 5</p>
-      <img :src='photo'/>
+      <!-- <img :src='photo'/> -->
     </article>
     <button @click="mountDirections" class='button-get-directions'>Get Directions</button>
     <directions v-if="directionsIsMounted" :park="this.park"></directions>
@@ -20,14 +20,12 @@
 </template>
 
 <script>
-import { getPhoto } from '../apiCalls.js'
 import Directions from './Directions.vue'
 export default {
   components: { Directions },
   data() {
     return {
       parkName: this.$route.params.name,
-      photo: '',
       directionsIsMounted: false
     }
   },
@@ -56,10 +54,10 @@ export default {
       this.directionsIsMounted = true;
     }
   },
-  mounted() {
-    getPhoto(this.park.photos[0].photo_reference)
-    .then(data => this.photo = data.url)
-  }
+  // mounted() {
+  //   getPhoto(this.park.photos[0].photo_reference)
+  //   .then(data => this.photo = data.url)
+  // }
 }
 </script>
 

@@ -6,6 +6,7 @@
       to="/results"
     >
       <button
+        id="location"
         :class="{ disabled: !this.$store.state.geolocation }"
         @click="searchByLocation"
       >
@@ -21,7 +22,7 @@
       v-model="searchTerm"
     />
     <router-link v-if="searchTerm" to="/results">
-      <button class="search-button" @click="search">
+      <button id="search" class="search-button" @click="search">
         Get Started - woof!
       </button>
     </router-link>
