@@ -6,6 +6,7 @@
       to="/results"
     >
       <button
+        id="location"
         :class="{ disabled: !this.$store.state.geolocation }"
         @click="searchByLocation"
       >
