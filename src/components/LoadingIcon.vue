@@ -4,6 +4,7 @@
 		<div></div>
 		<div></div>
 		<div></div>
+    <p>Loading...</p>
 	</div>
 </template>
 
@@ -44,6 +45,12 @@
 .lds-ellipsis div:nth-child(4) {
   left: 56px;
   animation: lds-ellipsis3 0.6s infinite;
+}
+
+.lds-ellipsis p {
+  position: absolute;
+  top: 40px;
+  left: 7px;
 }
 
 @keyframes lds-ellipsis1 {
