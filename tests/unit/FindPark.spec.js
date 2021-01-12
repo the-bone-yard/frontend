@@ -65,13 +65,10 @@ describe('FindPark', () => {
     expect(wrapper.find('#search').text()).toBe('Get Started - woof!');
   });
 
-  // it('should fire searchByLocation when near me button is clicked', async () => {
-  //   await wrapper.find('#location').trigger('click');
-  //   expect(searchByLocation).toHaveBeenCalled();
-  // });
-
-  // it('should fire search when get started button is clicked', () => {
-  //   wrapper.find('#search-button').trigger('click');
-  //   expect(setSearchTerm).toHaveBeenCalled();
-  // });
+  it('should fire searchByLocation when near me button is clicked', async () => {
+    const wrapper = mount(FindPark, { store, localVue });
+    wrapper.setMethods({ searchByLocation: jest.fn() });
+    await wrapper.find('#location').trigger('click');
+    expect(wrapper.vm.searchByLocation).toHaveBeenCalled();
+  });
 });
