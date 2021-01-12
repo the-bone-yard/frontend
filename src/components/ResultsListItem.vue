@@ -54,6 +54,7 @@ export default {
   align-items: center;
   background-color: white;
   border-radius: .4em;
+  width: 320px;
   filter: drop-shadow(0.2em 0.2em 0.2em rgba(0, 0, 0, 0.75));
 
   :first-child {
