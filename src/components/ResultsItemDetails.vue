@@ -12,21 +12,21 @@
       <p>Rating: {{ park.rating }} / 5</p>
       <!-- <img :src='photo'/> -->
     </article>
-    <button class='button-get-directions'>Get Directions</button>
-    <!-- button is not functional yet - need to get a directions component w/ router -->
+    <button @click="mountDirections" class='button-get-directions'>Get Directions</button>
+    <directions v-if="directionsIsMounted" :park="this.park"></directions>
     <h2>Not the right park for your pup?</h2>
     <router-link to='/'><button>Search Again</button></router-link>
   </section>
 </template>
 
 <script>
-// import { getPhoto } from '../apiCalls.js'
-
+import Directions from './Directions.vue'
 export default {
+  components: { Directions },
   data() {
     return {
       parkName: this.$route.params.name,
-      // photo: ''
+      directionsIsMounted: false
     }
   },
   computed: {
@@ -49,6 +49,9 @@ export default {
   methods: {
     savePark() {
       this.$store.commit('savePark', this.park)
+    },
+    mountDirections() {
+      this.directionsIsMounted = true;
     }
   },
   // mounted() {
