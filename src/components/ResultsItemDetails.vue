@@ -52,7 +52,7 @@ export default {
       if (photoRef) {
         return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=1000
                 &photoreference=${photoRef}
-                &key=AIzaSyBExBt_q86g-5_7J5e3lVctY3R10brEINo`
+                &key=${process.env.VUE_APP_GOOGLE_MAPS_API_KEY}`
       } else {
         return `https://encrypted-tbn0.gstatic.com/
                 images?q=tbn:ANd9GcSbeshCBceIHNyh82XOdQ-6JZD77uYjUpBVqg&usqp=CAU`
