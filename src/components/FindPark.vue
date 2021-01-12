@@ -69,9 +69,13 @@ section {
     @include button-main-style;
   }
 
+  button.disabled {
+    background-color: darkgray;
+  }
+
   .disabled {
     pointer-events: none;
-    background-color: darkgray;
+    // background-color: darkgray;
   }
 }
 </style>
