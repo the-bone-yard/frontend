@@ -10,7 +10,7 @@
     <article class='article-description'>
       <p>{{ open }}</p>
       <p>Rating: {{ park.rating }} / 5</p>
-      <img :src="determinePhoto()" />
+      <img :src="determinePhoto()" :alt="'photo for ' + park.name" />
     </article>
     <button class='button-get-directions'>Get Directions</button>
     <!-- button is not functional yet - need to get a directions component w/ router -->
