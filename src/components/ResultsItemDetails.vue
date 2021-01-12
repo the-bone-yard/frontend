@@ -14,6 +14,11 @@
     </article>
     <button class='button-get-directions'>Get Directions</button>
     <!-- button is not functional yet - need to get a directions component w/ router -->
+    <section v-if="this.directions.length">
+      <section :key='i' v-for="(direction, i) in directions">
+        <h4>{{i+1}}. {{direction}}</h4>
+      </section>
+    </section>
     <h2>Not the right park for your pup?</h2>
     <router-link to='/'><button>Search Again</button></router-link>
   </section>
@@ -26,7 +31,19 @@ export default {
   data() {
     return {
       parkName: this.$route.params.name,
-      photo: ''
+      photo: '',
+      directions: [
+        "Up",
+        "Up",
+        "Down",
+        "Down",
+        "Left",
+        "Right",
+        "Left",
+        "Right",
+        "B",
+        "A"
+      ]
     }
   },
   computed: {
