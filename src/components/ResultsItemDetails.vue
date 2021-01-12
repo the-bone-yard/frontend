@@ -23,7 +23,7 @@
 export default {
   data() {
     return {
-      parkName: this.$route.params.name,
+      parkName: this.$route.params.name
     }
   },
   computed: {
