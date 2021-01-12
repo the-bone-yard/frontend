@@ -45,7 +45,16 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '../styles/_mixins.scss';
+
+.results-list {
+  @include customDisplayFlex(0, 0);
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .loading {
   cursor:  wait;
 }
