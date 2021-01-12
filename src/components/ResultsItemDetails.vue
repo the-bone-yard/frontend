@@ -1,7 +1,7 @@
 <template>
   <section>
     <article class='article-button'>
-      <button @click="savePark" class='button-save-park'>SAVE</button>
+      <button @click="savePark" class='button-save-park'>{{ saved }}</button>
     </article>
     <article class='article-destination'>
       <h1 class='detail-descriptor'>{{ park.name }} </h1>
@@ -37,11 +37,18 @@ export default {
     },
     open() {
       return this.park.opening_hours.open_now === true ? 'Open Now' : 'Closed Now'
+    },
+    saved() {
+      if (this.$store.state.savedParks.includes(this.park)) {
+        return 'UNSAVE'
+      } else {
+        return 'SAVE'
+      }
     }
   },
   methods: {
     savePark() {
-      this.$store.commit('savePark', this.parkName)
+      this.$store.commit('savePark', this.park)
     }
   },
   mounted() {
