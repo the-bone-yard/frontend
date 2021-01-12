@@ -16,6 +16,7 @@
     <input
       class="search-input"
       type="text"
+      aria-label="Type your search terms here"
       placeholder="Enter name, city or zip code to search"
       v-model="searchTerm"
     />
@@ -75,7 +76,6 @@ section {
 
   .disabled {
     pointer-events: none;
-    // background-color: darkgray;
   }
 }
 </style>
