@@ -6,7 +6,7 @@ const localVue = createLocalVue();
 localVue.use(Vuex);
 
 describe('ResultsItemDetails', () => {
-  let state, store, computed, $route;
+  let state, store, mutations, computed, $route;
 
   beforeEach(() => {
     state = {
@@ -40,8 +40,13 @@ describe('ResultsItemDetails', () => {
       geolocation: null
     }
 
+    mutations = {
+      savePark: jest.fn()
+    }
+
     store = new Vuex.Store({
-      state
+      state,
+      mutations
     })
 
     computed = {
@@ -121,6 +126,26 @@ describe('ResultsItemDetails', () => {
     const saveParkButton = wrapper.find('.button-save-park');
     saveParkButton.trigger('click');
     expect(wrapper.vm.savePark).toHaveBeenCalledTimes(1);
+  })
+
+  it.skip('should trigger the savePark mutation', () => {
+    const wrapper = shallowMount(ResultsItemDetails, { 
+      store, 
+      localVue, 
+      computed,
+      mocks: {
+        $route
+      },
+      data() {
+        return {
+          parkName: 'BoneYard'
+        }
+      }
+    }) 
+    const saveParkButton = wrapper.find('.button-save-park');
+    saveParkButton.trigger('click');
+    console.log(store._mutations)
+    expect(store._mutations.savePark).toHaveBeenCalled()
   })
 })
 
