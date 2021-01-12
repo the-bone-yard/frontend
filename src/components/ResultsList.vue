@@ -1,7 +1,7 @@
 <template>
-  <section class='results-list' :class="{ loading: !noResults }">
+  <section class='results-list' :class="{ loading: message === 'Loading parks...' }">
     <h4 v-if="!$store.state.searchResults.length">
-      <h5> {{ message }}</h5>
+      <h5>{{ message }}</h5>
       <FindPark v-if="noResults" />
     </h4>
     <section v-else :key='i' v-for='(result, i) in searchResults'>
@@ -35,8 +35,10 @@ export default {
     message() {
       if (this.noResults) {
         return 'Sorry, no results found. Try a different search!'
+      } else if (!this.noResults && !this.$store.state.searchResults.length) {
+        return 'Loading parks...'
       } else {
-        return'Loading parks...'
+        return ''
       }
     }
   }
