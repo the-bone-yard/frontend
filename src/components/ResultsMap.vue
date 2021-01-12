@@ -18,7 +18,7 @@
 				:position="this.selectedMarker.geometry.location"
 				:clickable="false"
 				:draggable="false"
-				icon="https://www.google.com/mapfiles/marker_green.png"
+				:icon="{ scaledSize: {width: 28, height: 45}, url: 'https://www.clker.com/cliparts/R/g/O/v/U/h/google-maps-marker-for-residencelamontagne-md.png' }"
 			/>
 		</GmapMap>
 		<results-list-item :result="this.selectedMarker"></results-list-item>
