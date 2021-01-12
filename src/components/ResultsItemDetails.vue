@@ -10,7 +10,7 @@
     <article class='article-description'>
       <p>{{ open }}</p>
       <p>Rating: {{ park.rating }} / 5</p>
-      <img :src='photo'/>
+      <!-- <img :src='photo'/> -->
     </article>
     <button class='button-get-directions'>Get Directions</button>
     <!-- button is not functional yet - need to get a directions component w/ router -->
@@ -20,13 +20,13 @@
 </template>
 
 <script>
-import { getPhoto } from '../apiCalls.js'
+// import { getPhoto } from '../apiCalls.js'
 
 export default {
   data() {
     return {
       parkName: this.$route.params.name,
-      photo: ''
+      // photo: ''
     }
   },
   computed: {
@@ -51,10 +51,10 @@ export default {
       this.$store.commit('savePark', this.park)
     }
   },
-  mounted() {
-    getPhoto(this.park.photos[0].photo_reference)
-    .then(data => this.photo = data.url)
-  }
+  // mounted() {
+  //   getPhoto(this.park.photos[0].photo_reference)
+  //   .then(data => this.photo = data.url)
+  // }
 }
 </script>
 
