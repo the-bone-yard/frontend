@@ -8,8 +8,9 @@
       <p>Address: {{ park.formatted_address }}</p>
     </article>
     <article class='article-description'>
-      <p v-if="park.opening_hours.open_now">Open Now? {{ open }}</p>
+      <p>{{ open }}</p>
       <p>Rating: {{ park.rating }} / 5</p>
+      <img :src='photo'/>
     </article>
     <button class='button-get-directions'>Get Directions</button>
     <!-- button is not functional yet - need to get a directions component w/ router -->
@@ -19,12 +20,13 @@
 </template>
 
 <script>
-// import { getPhoto } from '../apiCalls.js'
+import { getPhoto } from '../apiCalls.js'
 
 export default {
   data() {
     return {
-      parkName: this.$route.params.name
+      parkName: this.$route.params.name,
+      photo: ''
     }
   },
   computed: {
@@ -34,7 +36,7 @@ export default {
       })
     },
     open() {
-      return this.park.opening_hours.open_now === true ? 'Yes' : 'No'
+      return this.park.opening_hours.open_now === true ? 'Open Now' : 'Closed Now'
     }
   },
   methods: {
@@ -42,10 +44,10 @@ export default {
       this.$store.commit('savePark', this.parkName)
     }
   },
-  // mounted() {
-  //   getPhoto(this.park.photos[0].photo_reference)
-  //   .then(data => console.log(data))
-  // }
+  mounted() {
+    getPhoto(this.park.photos[0].photo_reference)
+    .then(data => console.log(data))
+  }
 }
 </script>
 
