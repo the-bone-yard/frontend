@@ -41,14 +41,11 @@ export default {
   methods: {
     async search() {
       const results = await getSearch(this.searchTerm)
-        .then((data) => data);
       this.$store.commit('storeResults', results);
       this.searchTerm = '';
     },
     async searchByLocation() {
-      const results = await getResults(
-        this.$store.state.geolocation.coords
-      ).then((data) => data);
+      const results = await getResults(this.$store.state.geolocation.coords)
       this.$store.commit('storeResults', results);
     },
   },
