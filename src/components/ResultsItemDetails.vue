@@ -75,6 +75,9 @@ export default {
   }
 
   img {
-    width: 15em;
+    width: 12em;
+    height: auto;
+    border-radius: 13%;
+    padding: 1em;
   }
 </style>
