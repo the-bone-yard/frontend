@@ -53,7 +53,7 @@ export default {
   },
   mounted() {
     getPhoto(this.park.photos[0].photo_reference)
-    .then(data => console.log(data))
+    .then(data => this.photo = data.url)
   }
 }
 </script>
