@@ -84,7 +84,7 @@ describe('ResultsItemDetails', () => {
         }
       }
     })
-    
+
     expect(wrapper.exists()).toBe(true)
     expect(wrapper.find('section').isVisible()).toBeTruthy();
     expect(wrapper.find('h1').text()).toBe('BoneYard');
@@ -99,9 +99,28 @@ describe('ResultsItemDetails', () => {
     expect(getAllButtonTags.at(0).text()).toBe('SAVE');
     expect(getAllButtonTags.at(1).text()).toBe('Get Directions');
     expect(getAllButtonTags.at(2).text()).toBe('Search Again');
+  })
 
+  it('should trigger savePark method when save button is clicked', () => {
+    const wrapper = shallowMount(ResultsItemDetails, { 
+      store, 
+      localVue, 
+      computed,
+      mocks: {
+        $route
+      },
+      data() {
+        return {
+          parkName: 'BoneYard'
+        }
+      }
+    }) 
 
-
-
+    wrapper.setMethods({ savePark: jest.fn() });
+    expect(wrapper.find('.button-save-park').exists()).toBe(true);
+    const saveParkButton = wrapper.find('.button-save-park');
+    saveParkButton.trigger('click');
+    expect(wrapper.vm.savePark).toHaveBeenCalledTimes(1);
   })
 })
+
