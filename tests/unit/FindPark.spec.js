@@ -40,8 +40,27 @@ describe('FindPark', () => {
     expect(input.element.value).toBe('Erie, CO');
   });
 
-  // const getAllBtnTags = wrapper.findAll('button');
-  // expect(getAllBtnTags.at(1).text()).toBe('Get Started - woof!');
+  it('should render search button based on user input', async () => {
+    const wrapper = mount(FindPark, {
+      store,
+      localVue,
+      data() {
+        return {
+          searchTerm: 'Erie, CO',
+        };
+      },
+    });
+
+    expect(wrapper.find('#search').exists()).toBe(true);
+    expect(wrapper.find('#search').text()).toBe('Get Started - woof!');
+    // expect(wrapper.find('#search').exists()).toBe(false);
+    // const getAllBtnTags = wrapper.findAll('button');
+    // await getAllBtnTags
+    //   .at(1)
+    //   .exists()
+    //   .toBe(true);
+    // expect(getAllBtnTags.at(1).text()).toBe('Get Started - woof!');
+  });
 
   // it('should fire searchByLocation when near me button is clicked', async () => {
   //   await wrapper.find('#location').trigger('click');
