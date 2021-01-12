@@ -50,7 +50,14 @@ export default {
 				};
 			}
 		},
-		handleMarkerClick(marker) {
+		resetMap() {
+			this.centerMap = {
+				lat: 0,
+				lng: 0
+			}
+		},
+		async handleMarkerClick(marker) {
+			await this.resetMap()
 			this.centerMapToClickedLocation(marker.name);
 			this.setSelectedMarker(marker.name);
 		},
