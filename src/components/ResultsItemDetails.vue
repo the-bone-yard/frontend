@@ -10,7 +10,7 @@
     <article class='article-description'>
       <p>{{ open }}</p>
       <p>Rating: {{ park.rating }} / 5</p>
-      <img :src="determinePhoto()" />
+      <img :src="determinePhoto()" :alt="'photo for ' + park.name" />
     </article>
     <button @click="mountDirections" class='button-get-directions'>Get Directions</button>
     <directions v-if="directionsIsMounted" :park="this.park"></directions>
