@@ -23,6 +23,11 @@ describe('FindPark', () => {
     expect(wrapper.exists()).toBe(true);
   });
 
+  it('should render headings on load', () => {
+    const wrapper = mount(FindPark, { store, localVue });
+    expect(wrapper.find('h2').text()).toBe("Let's Go Play!");
+    expect(wrapper.find('h3').text()).toBe('--Or--');
+  });
   it('should render search button and input field on load', () => {
     const wrapper = mount(FindPark, { store, localVue });
     expect(wrapper.find('button').text()).toBe('Find a dog park near me!');
