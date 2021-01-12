@@ -40,7 +40,12 @@ describe('FindPark', () => {
     expect(input.element.value).toBe('Erie, CO');
   });
 
-  it('should render search button based on user input', async () => {
+  it('should not render a search button without user input', () => {
+    const wrapper = mount(FindPark, { store, localVue });
+    expect(wrapper.find('#search').exists()).toBe(false);
+  });
+
+  it('should render search button based on user input', () => {
     const wrapper = mount(FindPark, {
       store,
       localVue,
@@ -53,13 +58,6 @@ describe('FindPark', () => {
 
     expect(wrapper.find('#search').exists()).toBe(true);
     expect(wrapper.find('#search').text()).toBe('Get Started - woof!');
-    // expect(wrapper.find('#search').exists()).toBe(false);
-    // const getAllBtnTags = wrapper.findAll('button');
-    // await getAllBtnTags
-    //   .at(1)
-    //   .exists()
-    //   .toBe(true);
-    // expect(getAllBtnTags.at(1).text()).toBe('Get Started - woof!');
   });
 
   // it('should fire searchByLocation when near me button is clicked', async () => {
