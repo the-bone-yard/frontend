@@ -16,6 +16,11 @@ export default {
   mounted() {
     this.showPosition()
   },
+  updated() {
+    if(!this.$store.geolocation) {
+      this.showPosition()
+    }
+  },
   methods: {
     showPosition() {
       if(navigator.geolocation) {
