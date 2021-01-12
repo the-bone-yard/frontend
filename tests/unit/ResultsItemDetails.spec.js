@@ -44,13 +44,15 @@ describe('ResultsItemDetails', () => {
     })
 
     computed = {
-      park: {  
-        formatted_address: "5123-5275 Valmont Rd, Boulder",
-        geometry: {},
-        name: "Valmont Dog Park",
-        opening_hours: {open_now: false},
-        photos: [{}],
-        rating:4.7        
+      park() { 
+        return { 
+          formatted_address: "5123-5275 Valmont Rd, Boulder",
+          geometry: {},
+          name: "Valmont Dog Park",
+          opening_hours: {open_now: false},
+          photos: [{}],
+          rating:4.7        
+        }
       }
     }
   })
