@@ -13,7 +13,7 @@ import BodyContainer from './components/BodyContainer.vue'
 
 export default {
   components: { TheHeader, BodyContainer },
-  mounted() {
+  async mounted () {
     this.showPosition()
   },
   updated() {
