@@ -10,7 +10,7 @@
     <article class='article-description'>
       <p>{{ open }}</p>
       <p>Rating: {{ park.rating }} / 5</p>
-      <!-- <img :src='photo'/> -->
+      <img :src="determinePhoto()" />
     </article>
     <button class='button-get-directions'>Get Directions</button>
     <!-- button is not functional yet - need to get a directions component w/ router -->
@@ -20,13 +20,10 @@
 </template>
 
 <script>
-// import { getPhoto } from '../apiCalls.js'
-
 export default {
   data() {
     return {
       parkName: this.$route.params.name,
-      // photo: ''
     }
   },
   computed: {
@@ -49,12 +46,19 @@ export default {
   methods: {
     savePark() {
       this.$store.commit('savePark', this.park)
+    },
+    determinePhoto() {
+      const photoRef = this.park.photos[0].photo_reference
+      if (photoRef) {
+        return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=1000
+                &photoreference=${photoRef}
+                &key=AIzaSyBExBt_q86g-5_7J5e3lVctY3R10brEINo`
+      } else {
+        return `https://encrypted-tbn0.gstatic.com/
+                images?q=tbn:ANd9GcSbeshCBceIHNyh82XOdQ-6JZD77uYjUpBVqg&usqp=CAU`
+      }
     }
-  },
-  // mounted() {
-  //   getPhoto(this.park.photos[0].photo_reference)
-  //   .then(data => this.photo = data.url)
-  // }
+  }
 }
 </script>
 
@@ -68,5 +72,9 @@ export default {
 
   button { 
     @include button-main-style
+  }
+
+  img {
+    width: 15em;
   }
 </style>
