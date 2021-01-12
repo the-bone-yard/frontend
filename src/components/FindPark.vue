@@ -31,6 +31,7 @@
 
 <script>
 import { getResults } from '../apiCalls.js';
+import { getSearch } from '../apiCalls.js';
 export default {
   data() {
     return {
@@ -38,8 +39,10 @@ export default {
     };
   },
   methods: {
-    search() {
-      //functionality for search goes here...
+    async search() {
+      const results = await getSearch(this.searchTerm)
+        .then((data) => data);
+      this.$store.commit('storeResults', results);
       this.searchTerm = '';
     },
     async searchByLocation() {
