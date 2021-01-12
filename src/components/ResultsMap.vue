@@ -12,7 +12,7 @@
 				:position="m.geometry.location"
 				:clickable="true"
 				:draggable="false"
-				@click="handleMarkerClick($event, m)"
+				@click="handleMarkerClick(m)"
 			/>
 			<GmapMarker v-if="this.selectedMarker"
 				:position="this.selectedMarker.geometry.location"
@@ -50,7 +50,7 @@ export default {
 				};
 			}
 		},
-		handleMarkerClick(event, marker) {
+		handleMarkerClick(marker) {
 			this.centerMapToClickedLocation(marker.name);
 			this.setSelectedMarker(marker.name);
 		},
