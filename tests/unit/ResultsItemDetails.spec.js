@@ -6,7 +6,8 @@ const localVue = createLocalVue();
 localVue.use(Vuex);
 
 describe('ResultsItemDetails', () => {
-  let state, store, computed;
+  let state, store, computed, $route;
+
   beforeEach(() => {
     state = {
       savedParks: [],
@@ -48,22 +49,28 @@ describe('ResultsItemDetails', () => {
         return { 
           formatted_address: "5123-5275 Valmont Rd, Boulder",
           geometry: {},
-          name: "Valmont Dog Park",
+          name: "BoneYard",
           opening_hours: {open_now: false},
           photos: [{}],
           rating:4.7        
         }
+      },
+      open() {
+        return 'Closed Now'
+      },
+      saved() {
+        return 'SAVE'
       }
-    }
-  })
-
-  it('should render the component', () => {
-    const $route = {
+    },
+    $route = {
       path: '/results/BoneYard',
       params: {
         name: 'BoneYard'
       }
     }
+  })
+
+  it('should render the component', () => {
     const wrapper = shallowMount(ResultsItemDetails, { 
       store, 
       localVue, 
@@ -77,6 +84,24 @@ describe('ResultsItemDetails', () => {
         }
       }
     })
+    
     expect(wrapper.exists()).toBe(true)
+    expect(wrapper.find('section').isVisible()).toBeTruthy();
+    expect(wrapper.find('h1').text()).toBe('BoneYard');
+    expect(wrapper.find('h2').text()).toBe('Not the right park for your pup?');
+
+    const getAllPTags = wrapper.findAll('p');
+    expect(getAllPTags.at(0).text()).toBe('Address: 5123-5275 Valmont Rd, Boulder');
+    expect(getAllPTags.at(1).text()).toBe('Closed Now');
+    expect(getAllPTags.at(2).text()).toBe('Rating: 4.7 / 5');
+
+    const getAllButtonTags = wrapper.findAll('button');
+    expect(getAllButtonTags.at(0).text()).toBe('SAVE');
+    expect(getAllButtonTags.at(1).text()).toBe('Get Directions');
+    expect(getAllButtonTags.at(2).text()).toBe('Search Again');
+
+
+
+
   })
 })
