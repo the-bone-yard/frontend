@@ -23,10 +23,11 @@ describe('FindPark', () => {
     expect(wrapper.exists()).toBe(true);
   });
 
-  // it('should render search buttons', () => {
-  //   expect(wrapper.find('button').text()).toBe('Find a dog park near me!');
-  //   expect(wrapper.find('button').text()).toBe('Get Started - woof!');
-  // });
+  it('should render search button and input field on load', () => {
+    const wrapper = mount(FindPark, { store, localVue });
+    expect(wrapper.find('button').text()).toBe('Find a dog park near me!');
+    expect(wrapper.find('input').exists()).toBe(true);
+  });
 
   // it('should render an input field', () => {
   //   expect(wrapper.find('input').exists()).toBe(true);
