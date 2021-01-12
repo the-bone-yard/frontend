@@ -144,8 +144,7 @@ describe('ResultsItemDetails', () => {
     }) 
     const saveParkButton = wrapper.find('.button-save-park');
     saveParkButton.trigger('click');
-    console.log(store._mutations)
-    expect(store._mutations.savePark).toHaveBeenCalled()
+    expect(store._mutations.savePark).toHaveBeenCalled();
     //This test is currently failing.
     //I believe this is due to the fact that the savePark method
     //is not being mocked directly.  I am wondering if it is not
