@@ -29,9 +29,19 @@ describe('FindPark', () => {
     expect(wrapper.find('input').exists()).toBe(true);
   });
 
-  // it('should render an input field', () => {
-  //   expect(wrapper.find('input').exists()).toBe(true);
-  // });
+  it('should accept user input', async () => {
+    const wrapper = mount(FindPark, {
+      store,
+      localVue,
+      propsData: { searchTerm: '' },
+    });
+    const input = wrapper.find('input');
+    await input.setValue('Erie, CO');
+    expect(input.element.value).toBe('Erie, CO');
+  });
+
+  // const getAllBtnTags = wrapper.findAll('button');
+  // expect(getAllBtnTags.at(1).text()).toBe('Get Started - woof!');
 
   // it('should fire searchByLocation when near me button is clicked', async () => {
   //   await wrapper.find('#location').trigger('click');
