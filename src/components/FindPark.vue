@@ -1,7 +1,10 @@
 <template>
   <section>
     <h2>Let's Go Play!</h2>
-    <router-link to='/results'>
+    <router-link
+      :class="{ disabled: !this.$store.state.geolocation }"
+      to="/results"
+    >
       <button
         :class="{ disabled: !this.$store.state.geolocation }"
         @click="searchByLocation"
@@ -16,7 +19,7 @@
       placeholder="Enter name, city or zip code to search"
       v-model="searchTerm"
     />
-    <router-link v-if="searchTerm" to='/results'>
+    <router-link v-if="searchTerm" to="/results">
       <button class="search-button" @click="search">
         Get Started - woof!
       </button>
@@ -50,8 +53,8 @@ export default {
 <style lang="scss" scoped>
 @import '../styles/_mixins.scss';
 section {
-	@include customDisplayFlex(0, 0, column);
-	align-items: center;
+  @include customDisplayFlex(0, 0, column);
+  align-items: center;
   justify-content: center;
 
   .search-input {
@@ -62,8 +65,13 @@ section {
     padding: 1em;
   }
 
-	button {
-    @include button-main-style
-	}
+  button {
+    @include button-main-style;
+  }
+
+  .disabled {
+    pointer-events: none;
+    background-color: darkgray;
+  }
 }
 </style>
