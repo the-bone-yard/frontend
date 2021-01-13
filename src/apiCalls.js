@@ -37,26 +37,25 @@ export const getSaved = (email) => {
   return fetch('https://boneyard-be.herokuapp.com/api/park/all/')
     .then(response => response.json())
     .then(data => {
-      const fetchedParks = JSON.parse(data)
-      const userFetchedParks = fetchedParks.filter(park => park.email === email)
+      const userFetchedParks = data.filter(park => park.email === email)
       const convertedParks = userFetchedParks.map(park => {
         return {
-          formatted_address: park.formatted_address,
+          formatted_address: park.address,
           geometry: {
             location: {
               lat: park.lat,
               lng: park.lng
-            },
-            name: park.name,
-            opening_hours: {
-              open_now: (park.opening_hours === 'true')
-            },
-            photos: [{ photo_reference: park.photo }],
-            rating: park.rating
-          }
+            }
+          },
+          name: park.name,
+          opening_hours: {
+            open_now: (park.opening_hours === 'true')
+          },
+          photos: [{ photo_reference: park.photo }],
+          rating: park.rating
         }
       })
       return convertedParks
-    })
-    .catch(error => console.error(error))
+  })
+  .catch(error => console.error(error))
 }
