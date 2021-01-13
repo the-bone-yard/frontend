@@ -6,15 +6,17 @@
       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrnUwJ9xC5z-HtpYQZc3jHYJfcMtQUf8qzVg&usqp=CAU"
     />
     <h2>Find your pup a play date at the best dog parks around!</h2>
-    <FindPark />
+    <Email v-if="!$store.state.email"/>
+    <FindPark v-else />
   </section>
 </template>
 
 <script>
 import FindPark from '../components/FindPark.vue';
+import Email from '../components/Email.vue';
 
 export default {
-  components: { FindPark },
+  components: { FindPark, Email },
 };
 </script>
 
