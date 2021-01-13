@@ -14,7 +14,7 @@ export const postSaved = (parkToSave, email) => {
   const convertedPark = {
     name: parkToSave.name,
     formatted_address: parkToSave.formatted_address,
-    opening_hours: parkToSave.opening_hours.open_now.toString(),
+    opening_hours: parkToSave.opening_hours.open_now ? parkToSave.opening_hours.open_now.toString() : 'false',
     photo: parkToSave.photos[0].photo_reference,
     rating: parkToSave.rating.toString(),
     email: email,
