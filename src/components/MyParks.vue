@@ -2,11 +2,10 @@
   <section>
     <h1>My Saved Parks</h1>
     <h2 v-if="!$store.state.savedParks.length">Save a park to view it here!</h2>
-    <article v-else>
-      <section :key='i' v-for='(result, i) in $store.state.savedParks'>
-        <results-list-item :result='result'></results-list-item>
-      </section>
-    </article>
+    <results-list-item v-else 
+      v-for="(result, i) in $store.state.savedParks" 
+      :key='i' 
+      :result='result'></results-list-item>
   </section>
 </template>
 
