@@ -18,7 +18,7 @@
       <p>Rating: {{ park.rating }} / 5</p>
       <img :src="determinePhoto()" :alt="'photo for ' + park.name" />
     </article>
-    <button @click="mountDirections" class='button-get-directions'>Get Directions</button>
+    <button @click="mountDirections" class='button-get-directions'>{{ directionButtonText }}</button>
     <directions v-if="directionsIsMounted" :park="this.park"></directions>
     <h2>Not the right park for your pup?</h2>
     <router-link to='/results'><button>Explore Results</button></router-link>
@@ -51,6 +51,9 @@ export default {
       } else {
         return 'SAVE'
       }
+    },
+    directionButtonText() {
+      return this.directionsIsMounted ? 'Hide Directions' : 'Show Directions'
     }
   },
   methods: {
@@ -62,7 +65,12 @@ export default {
         })
     },
     mountDirections() {
-      this.directionsIsMounted = true;
+      // this.directionsIsMounted = true;
+      if (this.directionButtonText === 'Show Directions') {
+        this.directionsIsMounted = true
+      } else {
+        this.directionsIsMounted = false
+      }
     },
     determinePhoto() {
       const photoRef = this.park.photos[0].photo_reference
