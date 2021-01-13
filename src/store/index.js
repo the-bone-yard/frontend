@@ -7,7 +7,8 @@ export default new Vuex.Store({
   state: {
     savedParks: [],
     searchResults: [],
-    geolocation: null
+    geolocation: null,
+    email: ''
   },
   mutations: {
     savePark (state, newPark) {
@@ -18,6 +19,9 @@ export default new Vuex.Store({
     },
     updateGeolocation (state, geolocation) {
       state.geolocation = geolocation
+    },
+    storeEmail (state, email) {
+      state.email = email
     }
   },
   actions: {
