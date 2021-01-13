@@ -22,6 +22,9 @@ export default new Vuex.Store({
     },
     storeEmail (state, email) {
       state.email = email
+    },
+    clearResults (state) {
+      state.searchResults = []
     }
   },
   actions: {
