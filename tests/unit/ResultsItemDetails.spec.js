@@ -103,7 +103,7 @@ describe('ResultsItemDetails', () => {
     const getAllButtonTags = wrapper.findAll('button');
     expect(getAllButtonTags.at(0).text()).toBe('SAVE');
     expect(getAllButtonTags.at(1).text()).toBe('Get Directions');
-    expect(getAllButtonTags.at(2).text()).toBe('Search Again');
+    expect(getAllButtonTags.at(2).text()).toBe('Explore Results');
   })
 
   it('should trigger savePark method when save button is clicked', () => {
