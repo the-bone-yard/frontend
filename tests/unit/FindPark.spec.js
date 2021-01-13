@@ -26,12 +26,15 @@ describe('FindPark', () => {
   it('should render headings on load', () => {
     const wrapper = mount(FindPark, { store, localVue });
     expect(wrapper.find('h2').text()).toBe("Let's Go Play!");
-    expect(wrapper.find('h3').text()).toBe('--Or--');
+    expect(wrapper.find('#search-switch').text()).toBe('--Or--');
   });
 
   it('should disable Find Parks Near Me button if geolocation is inactive', () => {
     const wrapper = mount(FindPark, { store, localVue });
     expect(wrapper.find('.disabled').exists()).toBe(true);
+    // expect(wrapper.find('#location-message').text()).toBe(
+    //   'Turn on location services and reload the page to search for parks near you!'
+    // );
   });
 
   it('should render search button and input field with active geolocation', () => {
