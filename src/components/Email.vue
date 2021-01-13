@@ -1,7 +1,7 @@
 <template>
   <section>
-    <h1>Enter your email to get started!</h1>
     <article v-if="!message.includes('Success!')">
+      <h1>Enter your email to get started!</h1>
       <input 
         type='email' 
         aria-label="Type your email here"
@@ -12,7 +12,7 @@
         SUBMIT
       </button>
     </article>
-    <h3 :class="{error: message.includes('Required'), success: message.includes('Success')}">{{ message }}</h3>
+    <h3 class='error'>{{ message }}</h3>
   </section>
 </template>
 
@@ -32,7 +32,6 @@ export default {
         this.email = ''
         return 
       } 
-      this.message = `Success! ${this.email} has been saved.`
       this.$store.commit('storeEmail', this.email);
     }
   },
@@ -58,9 +57,5 @@ input {
 
 .error {
   color: red;
-}
-
-.success {
-  color: green;
 }
 </style>
