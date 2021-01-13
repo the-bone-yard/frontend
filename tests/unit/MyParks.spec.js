@@ -74,7 +74,6 @@ describe('MyParks.vue', () => {
     expect(getAllH1Tags.at(2).text()).toBe('8270 Lexington Dr, Colorado Springs');
     expect(getAllPTags.at(0).text()).toBe('This park is open');
     expect(getAllPTags.at(1).text()).toBe('Rating: 4.4');
-    expect(getAllBtnTags.at(0).text()).toBe('UNSAVE');
     expect(getAllBtnTags.at(1).text()).toBe('DETAILS');
   });
   
