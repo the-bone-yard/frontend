@@ -1,7 +1,7 @@
 <template>
   <section>
     <h1>Enter your email to get started!</h1>
-    <article v-if="message !== 'Success!'">
+    <article v-if="!message.includes('Success!')">
       <input 
         type='email' 
         aria-label="Type your email here"
@@ -32,7 +32,7 @@ export default {
         this.email = ''
         return 
       } 
-      this.message = 'Success!'
+      this.message = `Success! ${this.email} has been saved.`
       this.$store.commit('storeEmail', this.email);
     }
   },
