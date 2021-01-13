@@ -22,7 +22,7 @@
 </template>
 
 <script>
-
+import { getSaved } from '../apiCalls.js'
 export default {
   data() {
     return {
@@ -38,6 +38,8 @@ export default {
         return 
       }
       await this.$store.commit('storeEmail', this.email);
+      const fetchedSavedParks = await getSaved(this.$store.state.email)
+      this.$store.commit('saveParks', fetchedSavedParks)
       this.message = `Success! ${this.$store.state.email} has been saved.`
       setTimeout(() => this.$store.commit('changeToSearch'), 2500);
     }
