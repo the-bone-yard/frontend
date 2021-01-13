@@ -12,7 +12,12 @@
         SUBMIT
       </button>
     </article>
-    <h3 class='error'>{{ message }}</h3>
+    <h3 
+      :class="{error: message.includes('Required'),
+      success: message.includes('Success')}"
+    >
+      {{ message }}
+    </h3>
   </section>
 </template>
 
@@ -26,13 +31,15 @@ export default {
     }
   },
   methods: {
-    submitEmail() {
+    async submitEmail() {
       if (this.isInvalid) {
         this.message = 'Please enter a valid email address to continue. Required: @ Required: . '
         this.email = ''
         return 
-      } 
-      this.$store.commit('storeEmail', this.email);
+      }
+      await this.$store.commit('storeEmail', this.email);
+      this.message = `Success! ${this.$store.state.email} has been saved.`
+      setTimeout(() => this.$store.commit('changeToSearch'), 2500);
     }
   },
   computed: {
@@ -57,5 +64,9 @@ input {
 
 .error {
   color: red;
+}
+
+.success {
+  color: green;
 }
 </style>
