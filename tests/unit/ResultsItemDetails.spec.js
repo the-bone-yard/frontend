@@ -103,7 +103,7 @@ describe('ResultsItemDetails', () => {
     const getAllButtonTags = wrapper.findAll('button');
     expect(getAllButtonTags.at(0).text()).toBe('SAVE');
     expect(getAllButtonTags.at(1).text()).toBe('Get Directions');
-    expect(getAllButtonTags.at(2).text()).toBe('Search Again');
+    expect(getAllButtonTags.at(2).text()).toBe('Explore Results');
   })
 
   it('should trigger savePark method when save button is clicked', () => {
@@ -150,6 +150,25 @@ describe('ResultsItemDetails', () => {
     //is not being mocked directly.  I am wondering if it is not
     //possible to test the mutation this way, and that it needs to 
     //be an isolated test...
+  })
+
+  it('should disable the save button if park has been saved', () => {
+    const wrapper = shallowMount(ResultsItemDetails, { 
+      store, 
+      localVue, 
+      computed,
+      mocks: {
+        $route
+      },
+      data() {
+        return {
+          parkName: 'BoneYard'
+        }
+      }
+    }) 
+    
+    expect(wrapper.exists()).toBe(true);
+    //add test criteria / assertions 
   })
 })
 

@@ -13,12 +13,15 @@
         Find a dog park near me!
       </button>
     </router-link>
-    <h3>--Or--</h3>
+    <h3 id="location-message" v-if="!this.$store.state.geolocation">
+      {{ message }}
+    </h3>
+    <h3 id="search-switch">--Or--</h3>
     <input
       class="search-input"
       type="text"
       aria-label="Type your search terms here"
-      placeholder="Enter name, city or zip code to search"
+      placeholder="Enter City, State to search"
       v-model="searchTerm"
     />
     <router-link v-if="searchTerm" to="/results">
@@ -36,19 +39,30 @@ export default {
   data() {
     return {
       searchTerm: '',
+      message: 'Retrieving your location...'
     };
   },
   methods: {
+    load() {
+      if(!this.$store.state.geolocation) {
+        this.message = 'Turn on location services and reload the page to search for parks near you!'
+      } else {
+        this.message = ''
+      }
+    },
     async search() {
-      const results = await getSearch(this.searchTerm)
+      const results = await getSearch(this.searchTerm);
       this.$store.commit('storeResults', results);
       this.searchTerm = '';
     },
     async searchByLocation() {
-      const results = await getResults(this.$store.state.geolocation.coords)
+      const results = await getResults(this.$store.state.geolocation.coords);
       this.$store.commit('storeResults', results);
     },
   },
+  mounted() {
+    setTimeout(() => this.load(), 8000)
+  }
 };
 </script>
 

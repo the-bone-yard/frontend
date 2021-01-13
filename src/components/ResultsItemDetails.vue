@@ -1,7 +1,13 @@
 <template>
   <section>
     <article class='article-button'>
-      <button @click="savePark" class='button-save-park'>{{ saved }}</button>
+      <button 
+        @click="savePark" 
+        class='button-save-park'
+        :class="{ disabled: saved === 'PARK SAVED!' }"
+      >
+        {{ saved }}
+      </button>
     </article>
     <article class='article-destination'>
       <h1 class='detail-descriptor'>{{ park.name }} </h1>
@@ -15,7 +21,7 @@
     <button @click="mountDirections" class='button-get-directions'>Get Directions</button>
     <directions v-if="directionsIsMounted" :park="this.park"></directions>
     <h2>Not the right park for your pup?</h2>
-    <router-link to='/'><button>Search Again</button></router-link>
+    <router-link to='/results'><button>Explore Results</button></router-link>
   </section>
 </template>
 
@@ -40,7 +46,7 @@ export default {
     },
     saved() {
       if (this.$store.state.savedParks.includes(this.park)) {
-        return 'UNSAVE'
+        return 'PARK SAVED!'
       } else {
         return 'SAVE'
       }
@@ -85,5 +91,13 @@ export default {
     height: auto;
     border-radius: 13%;
     padding: 1em;
+  }
+
+   button.disabled {
+    background-color: darkgray;
+  }
+
+  .disabled {
+    pointer-events: none;
   }
 </style>
