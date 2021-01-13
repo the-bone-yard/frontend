@@ -22,7 +22,7 @@
       class="search-input"
       type="text"
       aria-label="Type your search terms here"
-      placeholder="Enter name, city or zip code to search"
+      placeholder="Enter city and state to search"
       v-model="searchTerm"
     />
     <router-link v-if="searchTerm" to="/results">
