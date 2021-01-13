@@ -8,7 +8,7 @@ export default new Vuex.Store({
     savedParks: [],
     searchResults: [],
     geolocation: null,
-    email: 'test@email.com'
+    email: '',
   },
   mutations: {
     saveParks (state, savedParksFromApi) {
