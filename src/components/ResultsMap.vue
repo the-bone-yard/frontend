@@ -1,6 +1,5 @@
 <template>
 	<section>
-		<results-list-item :result="this.selectedMarker"></results-list-item>
 		<p>Zoom out on map to ensure all result markers are visible.</p>
 		<GmapMap
 			:center="centerMap"
@@ -32,6 +31,7 @@
 				:icon="{ scaledSize: {width: 28, height: 45}, url: 'https://www.clker.com/cliparts/R/g/O/v/U/h/google-maps-marker-for-residencelamontagne-md.png' }"
 			/>
 		</GmapMap>
+		<results-list-item :result="this.selectedMarker"></results-list-item>
 	</section>
 </template>
 
