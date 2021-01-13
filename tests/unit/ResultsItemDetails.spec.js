@@ -151,5 +151,24 @@ describe('ResultsItemDetails', () => {
     //possible to test the mutation this way, and that it needs to 
     //be an isolated test...
   })
+
+  it('should disable the save button if park has been saved', () => {
+    const wrapper = shallowMount(ResultsItemDetails, { 
+      store, 
+      localVue, 
+      computed,
+      mocks: {
+        $route
+      },
+      data() {
+        return {
+          parkName: 'BoneYard'
+        }
+      }
+    }) 
+    
+    expect(wrapper.exists()).toBe(true);
+    //add test criteria / assertions 
+  })
 })
 
