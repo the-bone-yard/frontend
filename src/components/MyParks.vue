@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="saved-list">
     <h1>My Saved Parks</h1>
     <h2 v-if="!$store.state.email">Sign in with your email to view your saved parks.</h2>
     <h2 v-else-if="!$store.state.savedParks.length">Save a park to view it here!</h2>
@@ -16,3 +16,13 @@ export default {
   components: { ResultsListItem }
 }
 </script>
+
+<style lang="scss" scoped>
+@import '../styles/_mixins.scss';
+.saved-list {
+  @include customDisplayFlex(0, 0);
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+</style>
