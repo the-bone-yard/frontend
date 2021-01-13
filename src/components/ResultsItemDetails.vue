@@ -40,7 +40,7 @@ export default {
     },
     saved() {
       if (this.$store.state.savedParks.includes(this.park)) {
-        return 'UNSAVE'
+        return 'PARK SAVED!'
       } else {
         return 'SAVE'
       }
