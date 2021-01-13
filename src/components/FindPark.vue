@@ -52,6 +52,9 @@ export default {
       this.$store.commit('storeResults', results);
     },
   },
+  mounted() {
+    setTimeout(() => this.load(), 5000)
+  }
 };
 </script>
 
