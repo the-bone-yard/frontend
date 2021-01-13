@@ -28,11 +28,7 @@ export default {
   },
   computed: {
     saved() {
-      if (this.$store.state.savedParks.includes(this.result)) {
-        return 'PARK SAVED!'
-      } else {
-        return 'SAVE'
-      }
+      return this.$store.state.savedParks.includes(this.result) ? 'PARK SAVED!' : 'SAVE'
     }
   }
 };
