@@ -37,7 +37,9 @@ export const getSaved = (email) => {
   return fetch('https://boneyard-be.herokuapp.com/api/park/all/')
     .then(response => response.json())
     .then(data => {
-      const userFetchedParks = data.filter(park => park.email === email)
+      const userFetchedParks = data.filter(park => {
+       return park.email === email
+      })
       const convertedParks = userFetchedParks.map(park => {
         return {
           formatted_address: park.address,
@@ -52,7 +54,7 @@ export const getSaved = (email) => {
             open_now: (park.opening_hours === 'true')
           },
           photos: [{ photo_reference: park.photo }],
-          rating: park.rating
+          rating: parseInt(park.rating)
         }
       })
       return convertedParks
