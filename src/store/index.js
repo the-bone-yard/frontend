@@ -10,8 +10,8 @@ export default new Vuex.Store({
     geolocation: null
   },
   mutations: {
-    savePark (state, newPark) {
-      state.savedParks = [...state.savedParks, newPark]
+    saveParks (state, savedParksFromApi) {
+      state.savedParks = savedParksFromApi
     },
     storeResults (state, results) {
       state.searchResults = results
