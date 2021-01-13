@@ -102,7 +102,7 @@ describe('ResultsItemDetails', () => {
 
     const getAllButtonTags = wrapper.findAll('button');
     expect(getAllButtonTags.at(0).text()).toBe('SAVE');
-    expect(getAllButtonTags.at(1).text()).toBe('Get Directions');
+    expect(getAllButtonTags.at(1).text()).toBe('Show Directions');
     expect(getAllButtonTags.at(2).text()).toBe('Explore Results');
   })
 
