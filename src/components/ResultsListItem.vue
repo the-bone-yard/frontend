@@ -26,7 +26,7 @@ export default {
   props: ['result'],
   methods: {
     async savePark() {
-      await postSaved()
+      await postSaved(this.result, this.$store.state.email)
       getSaved()
         .then(data => {
           this.$store.commit('saveParks', data)
