@@ -10,23 +10,23 @@
     <article class='article-description'>
       <p>{{ open }}</p>
       <p>Rating: {{ park.rating }} / 5</p>
-      <!-- <img :src='photo'/> -->
+      <img :src="determinePhoto()" :alt="'photo for ' + park.name" />
     </article>
-    <button class='button-get-directions'>Get Directions</button>
-    <!-- button is not functional yet - need to get a directions component w/ router -->
+    <button @click="mountDirections" class='button-get-directions'>Get Directions</button>
+    <directions v-if="directionsIsMounted" :park="this.park"></directions>
     <h2>Not the right park for your pup?</h2>
     <router-link to='/'><button>Search Again</button></router-link>
   </section>
 </template>
 
 <script>
-// import { getPhoto } from '../apiCalls.js'
-
+import Directions from './Directions.vue'
 export default {
+  components: { Directions },
   data() {
     return {
       parkName: this.$route.params.name,
-      // photo: ''
+      directionsIsMounted: false
     }
   },
   computed: {
@@ -49,12 +49,22 @@ export default {
   methods: {
     savePark() {
       this.$store.commit('savePark', this.park)
+    },
+    mountDirections() {
+      this.directionsIsMounted = true;
+    },
+    determinePhoto() {
+      const photoRef = this.park.photos[0].photo_reference
+      if (photoRef) {
+        return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=1000
+                &photoreference=${photoRef}
+                &key=${process.env.VUE_APP_GOOGLE_MAPS_API_KEY}`
+      } else {
+        return `https://encrypted-tbn0.gstatic.com/
+                images?q=tbn:ANd9GcSbeshCBceIHNyh82XOdQ-6JZD77uYjUpBVqg&usqp=CAU`
+      }
     }
-  },
-  // mounted() {
-  //   getPhoto(this.park.photos[0].photo_reference)
-  //   .then(data => this.photo = data.url)
-  // }
+  }
 }
 </script>
 
@@ -68,5 +78,12 @@ export default {
 
   button { 
     @include button-main-style
+  }
+
+  img {
+    width: 12em;
+    height: auto;
+    border-radius: 13%;
+    padding: 1em;
   }
 </style>
