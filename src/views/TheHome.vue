@@ -22,5 +22,6 @@ export default {
 .puppy-picture {
   width: 100%;
   border-radius: 5%;
+  max-width: 1000px;
 }
 </style>
