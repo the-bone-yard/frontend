@@ -29,7 +29,7 @@ export default {
   methods: {
     async savePark() {
       await postSaved(this.result, this.$store.state.email)
-      getSaved()
+      getSaved(this.$store.state.email)
         .then(data => {
           this.$store.commit('saveParks', data)
         })
