@@ -21,7 +21,7 @@
 
 <script>
 import Directions from './Directions.vue'
-import { postSaved } from '../apiCalls.js'
+import { postSaved, getSaved } from '../apiCalls.js'
 export default {
   components: { Directions },
   data() {
@@ -48,9 +48,12 @@ export default {
     }
   },
   methods: {
-    savePark() {
-      postSaved()
-      this.$store.commit('savePark', this.park)
+    async savePark() {
+      await postSaved()
+      getSaved()
+        .then(data => {
+          this.$store.commit('saveParks', data)
+        })
     },
     mountDirections() {
       this.directionsIsMounted = true;

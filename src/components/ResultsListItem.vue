@@ -25,9 +25,12 @@ import { postSaved } from '../apiCalls.js'
 export default {
   props: ['result'],
   methods: {
-    savePark() {
-      postSaved()
-      this.$store.commit('savePark', this.result)
+    async savePark() {
+      await postSaved()
+      getSaved()
+        .then(data => {
+          this.$store.commit('saveParks', data)
+        })
     },
     unsavePark() {
       // implement code to unsave parks here
