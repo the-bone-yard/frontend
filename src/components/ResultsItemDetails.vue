@@ -21,6 +21,7 @@
 
 <script>
 import Directions from './Directions.vue'
+import { postSaved } from '../apiCalls.js'
 export default {
   components: { Directions },
   data() {
@@ -48,6 +49,7 @@ export default {
   },
   methods: {
     savePark() {
+      postSaved()
       this.$store.commit('savePark', this.park)
     },
     mountDirections() {

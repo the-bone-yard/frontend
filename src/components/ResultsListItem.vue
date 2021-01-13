@@ -21,11 +21,12 @@
 </template>
 
 <script>
-
+import { postSaved } from '../apiCalls.js'
 export default {
   props: ['result'],
   methods: {
     savePark() {
+      postSaved()
       this.$store.commit('savePark', this.result)
     },
     unsavePark() {
