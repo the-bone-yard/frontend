@@ -5,6 +5,15 @@
 		<GmapMap
 			:center="centerMap"
 			:zoom="10"
+			:options="{
+				zoomControl: true,
+				mapTypeControl: false,
+				scaleControl: false,
+				streetViewControl: false,
+				rotateControl: false,
+				fullScreenControl: true,
+				disableDefaultUI: false	
+			}"
 			map-type-id="terrain"
 			style="width: 100%; height: 50vh"
 		>
