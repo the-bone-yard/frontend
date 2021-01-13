@@ -80,4 +80,19 @@ describe('FindPark', () => {
     await wrapper.find('#location').trigger('click');
     expect(wrapper.vm.searchByLocation).toHaveBeenCalled();
   });
+
+  it('should fire search method on button click', async () => {
+    const wrapper = mount(FindPark, {
+      store,
+      localVue,
+      data() {
+        return {
+          searchTerm: 'Erie, CO',
+        };
+      },
+    });
+    wrapper.setMethods({ search: jest.fn() });
+    await wrapper.find('#search').trigger('click');
+    expect(wrapper.vm.search).toHaveBeenCalled();
+  });
 });
