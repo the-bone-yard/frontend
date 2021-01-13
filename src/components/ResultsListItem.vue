@@ -10,12 +10,16 @@
         @click="savePark" 
         class="save-button"
         :class="{ disabled: saved === 'PARK SAVED!' }"
+        aria-describedby="Click this button to save this park as a favorite."
       >
         {{ saved }}
       </button>
       <router-link :to="`/results/${result.name}`" >
-        <button class='details-button'>
-          DETAILS
+        <button 
+          class='details-button'
+          aria-describedby="Click this button to view all the details for this park."  
+        >
+        DETAILS
         </button>
       </router-link>
     </section>
