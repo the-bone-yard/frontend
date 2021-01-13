@@ -52,13 +52,13 @@ describe('ResultsListItem', () => {
     })
   })
 
-  it('should render ResultsListItem component', () => {
+  it.skip('should render ResultsListItem component', () => {
 		expect(wrapper.exists()).toBe(true);
     expect(wrapper.find('section').isVisible()).toBeTruthy();
 		expect(wrapper.find('button').text()).toBe('SAVE');
   })
 
-  it('should render the correct result data', () => {
+  it.skip('should render the correct result data', () => {
     const getAllH1Tags = wrapper.findAll('h1');
     const getAllPTags = wrapper.findAll('p');
     const getAllBtnTags = wrapper.findAll('button');
