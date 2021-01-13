@@ -9,6 +9,7 @@ export default new Vuex.Store({
     searchResults: [],
     geolocation: null,
     email: '',
+    homeChildComp: 'Email'
   },
   mutations: {
     saveParks (state, savedParksFromApi) {
@@ -19,6 +20,15 @@ export default new Vuex.Store({
     },
     updateGeolocation (state, geolocation) {
       state.geolocation = geolocation
+    },
+    storeEmail (state, email) {
+      state.email = email
+    },
+    clearResults (state) {
+      state.searchResults = []
+    },
+    changeToSearch (state) {
+      state.homeChildComp = 'FindPark'
     }
   },
   actions: {
