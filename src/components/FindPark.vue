@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h3 class='success'>Success! {{ $store.state.email }} has been saved.</h3>
+    <h3 v-if="$store.state.email" class='success'>Success! {{ $store.state.email }} has been saved.</h3>
     <h2>Let's Go Play!</h2>
     <router-link
       :class="{ disabled: !this.$store.state.geolocation }"
@@ -42,11 +42,13 @@ export default {
   methods: {
     async search() {
       const results = await getSearch(this.searchTerm)
+      await this.$store.commit('clearResults');
       this.$store.commit('storeResults', results);
       this.searchTerm = '';
     },
     async searchByLocation() {
       const results = await getResults(this.$store.state.geolocation.coords)
+      await this.$store.commit('clearResults');
       this.$store.commit('storeResults', results);
     },
   },
