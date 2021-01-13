@@ -1,6 +1,5 @@
 <template>
   <section>
-    <h3 v-if="$store.state.email" class='success'>Success! {{ $store.state.email }} has been saved.</h3>
     <h2>Let's Go Play!</h2>
     <router-link
       :class="{ disabled: !this.$store.state.geolocation }"
@@ -80,10 +79,6 @@ section {
 
   .disabled {
     pointer-events: none;
-  }
-
-  .success {
-    color: green;
   }
 }
 </style>
