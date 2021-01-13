@@ -13,6 +13,10 @@
         Find a dog park near me!
       </button>
     </router-link>
+    <h3 v-if="!this.$store.state.geolocation">
+      Turn on location services and reload the page to search for parks near
+      you!
+    </h3>
     <h3>--Or--</h3>
     <input
       class="search-input"
@@ -40,12 +44,12 @@ export default {
   },
   methods: {
     async search() {
-      const results = await getSearch(this.searchTerm)
+      const results = await getSearch(this.searchTerm);
       this.$store.commit('storeResults', results);
       this.searchTerm = '';
     },
     async searchByLocation() {
-      const results = await getResults(this.$store.state.geolocation.coords)
+      const results = await getResults(this.$store.state.geolocation.coords);
       this.$store.commit('storeResults', results);
     },
   },
