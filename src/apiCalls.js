@@ -10,18 +10,21 @@ export const getSearch = (searchTerm) => {
     .catch(error => console.error(error))
 }
 
-export const postSaved = (parkToSave) => {
+export const postSaved = (parkToSave, email) => {
   const convertedPark = {
     name: parkToSave.name,
     formatted_address: parkToSave.formatted_address,
-    opening_hours: parkToSave.opening_hours,
+    opening_hours: parkToSave.opening_hours.open_now.toString(),
     photo: parkToSave.photo,
-    rating: parkToSave.rating
+    rating: parkToSave.rating.toString(),
+    email: email,
+    lat: parkToSave.geometry.location.lat,
+    lng: parkToSave.geometry.location.lng,
   }
   const init = {
     method: 'POST',
     headers: {
-  	  'Content-Type': 'application/json'
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify(convertedPark)
   };
