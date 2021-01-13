@@ -10,11 +10,13 @@
 <script>
 import TheHeader from './components/TheHeader.vue'
 import BodyContainer from './components/BodyContainer.vue'
-
+import { getSaved } from './apiCalls.js'
 export default {
   components: { TheHeader, BodyContainer },
-  mounted() {
+  async mounted() {
     this.showPosition()
+    const fetchedSavedParks = await getSaved()
+    this.$store.commit('saveParks', fetchedSavedParks)
   },
   methods: {
     showPosition() {
@@ -23,7 +25,7 @@ export default {
           this.$store.commit('updateGeolocation', position)
         });
       } 
-    } 
+    },
   }
 }
 </script>
