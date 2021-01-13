@@ -7,7 +7,9 @@ export default new Vuex.Store({
   state: {
     savedParks: [],
     searchResults: [],
-    geolocation: null
+    geolocation: null,
+    email: '',
+    homeChildComp: 'Email'
   },
   mutations: {
     savePark (state, newPark) {
@@ -18,6 +20,15 @@ export default new Vuex.Store({
     },
     updateGeolocation (state, geolocation) {
       state.geolocation = geolocation
+    },
+    storeEmail (state, email) {
+      state.email = email
+    },
+    clearResults (state) {
+      state.searchResults = []
+    },
+    changeToSearch (state) {
+      state.homeChildComp = 'FindPark'
     }
   },
   actions: {
