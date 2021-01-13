@@ -31,10 +31,9 @@ describe('FindPark', () => {
 
   it('should disable Find Parks Near Me button if geolocation is inactive', () => {
     const wrapper = mount(FindPark, { store, localVue });
+    const msg = 'Turn on location services and reload the page to search for parks near you!';
     expect(wrapper.find('.disabled').exists()).toBe(true);
-    // expect(wrapper.find('#location-message').text()).toBe(
-    //   'Turn on location services and reload the page to search for parks near you!'
-    // );
+    expect(wrapper.find('#location-message').text()).toBe(msg);
   });
 
   it('should render search button and input field with active geolocation', () => {

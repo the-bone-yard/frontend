@@ -14,8 +14,7 @@
       </button>
     </router-link>
     <h3 id="location-message" v-if="!this.$store.state.geolocation">
-      Turn on location services and reload the page to search for parks near
-      you!
+      Turn on location services and reload the page to search for parks near you!
     </h3>
     <h3 id="search-switch">--Or--</h3>
     <input
