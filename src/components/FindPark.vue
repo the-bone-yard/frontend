@@ -13,11 +13,11 @@
         Find a dog park near me!
       </button>
     </router-link>
-    <h3 v-if="!this.$store.state.geolocation">
+    <h3 id="location-message" v-if="!this.$store.state.geolocation">
       Turn on location services and reload the page to search for parks near
       you!
     </h3>
-    <h3>--Or--</h3>
+    <h3 id="search-switch">--Or--</h3>
     <input
       class="search-input"
       type="text"
