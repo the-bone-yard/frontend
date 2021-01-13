@@ -6,10 +6,7 @@
     <p>Rating: {{ result.rating }}</p>
     <section class="item-card-bottom">
       <button v-if="this.$route.path !== '/my-parks'" @click="savePark" class="save-button">
-        SAVE
-      </button>
-      <button v-else @click="unsavePark" class="unsave-button">
-        UNSAVE
+        {{ saved }}
       </button>
       <router-link :to="`/results/${result.name}`" >
         <button class='details-button'>
@@ -27,11 +24,17 @@ export default {
   methods: {
     savePark() {
       this.$store.commit('savePark', this.result)
-    },
-    unsavePark() {
-      // implement code to unsave parks here
     }
   },
+  computed: {
+    saved() {
+      if (this.$store.state.savedParks.includes(this.result)) {
+        return 'PARK SAVED!'
+      } else {
+        return 'SAVE'
+      }
+    }
+  }
 };
 </script>
 
