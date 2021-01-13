@@ -86,7 +86,7 @@ export default {
   .save-button, .details-button, .unsave-button {
     @include button-main-style;  
     margin-top: .7em;
-    width: 7em;
+    width: 9em;
   }
 
   button.disabled {
