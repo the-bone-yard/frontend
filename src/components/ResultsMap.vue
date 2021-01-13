@@ -68,3 +68,12 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+@import '../styles/_mixins.scss';
+section {
+	@include customDisplayFlex(0, 0, column);
+	justify-content: center;
+	align-items: center;
+}
+</style>
