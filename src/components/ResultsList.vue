@@ -4,9 +4,10 @@
       <h5>{{ message }}</h5>
       <FindPark v-if="noResults" />
     </h4>
-    <section v-else :key='i' v-for='(result, i) in searchResults'>
-      <results-list-item :result='result'></results-list-item>
-    </section>
+    <results-list-item v-else 
+      v-for="(result, i) in searchResults" 
+      :key='i' 
+      :result='result'></results-list-item>
   </section>
 </template>
 
