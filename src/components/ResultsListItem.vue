@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { postSaved } from '../apiCalls.js'
+import { postSaved, getSaved } from '../apiCalls.js'
 export default {
   props: ['result'],
   methods: {
