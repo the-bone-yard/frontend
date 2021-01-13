@@ -84,6 +84,8 @@ export default {
 
   .disabled {
     pointer-events: none;
+  @media screen and (max-width: 360px) {
+    width: 260px;
   }
 }
 </style>
