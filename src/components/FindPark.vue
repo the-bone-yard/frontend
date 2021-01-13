@@ -21,7 +21,7 @@
       class="search-input"
       type="text"
       aria-label="Type your search terms here"
-      placeholder="Enter city and state to search"
+      placeholder="Enter City, State to search"
       v-model="searchTerm"
     />
     <router-link v-if="searchTerm" to="/results">
