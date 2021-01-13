@@ -1,12 +1,13 @@
 <template>
-  <ol v-if="this.directions.length">
-    <li :key='i' v-for="(direction, i) in directions">
+  <article v-if="this.directions.length">
+    <p class='direction' :key='i' v-for="(direction, i) in directions">
       {{direction}}  
-    </li>
-  </ol>
+    </p>
+  </article>
 </template>
 
 <script>
+import { getDirections } from '../apiCalls.js'
 export default {
   props: ["park"],
   data() {
@@ -15,26 +16,23 @@ export default {
     }
   },
   mounted() {
-    // This is where the apiCall for getting directions will happen 
-    // For now there is placeholder functionality for testing purposes
-    this.directions = [
-        "Up",
-        "Up",
-        "Down",
-        "Down",
-        "Left",
-        "Right",
-        "Left",
-        "Right",
-        "B",
-        "A"
-      ]
-    // apiCall functionality might look like this:
-    // this.directions = getDirections(this.park)
+    const geolocation = this.$store.state.geolocation
+    const parkCoords = this.park.geometry.location
+    getDirections(geolocation, parkCoords)
+    .then(data => this.directions = data.narratives)
   }
 }
 </script>
 
-<style>
+<style scoped>
+.direction {
+  margin: 1.5em;
+}
+
+article {
+  text-align: left;
+  max-width: 30em;
+  margin: auto;
+}
 
 </style>
