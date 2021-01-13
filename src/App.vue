@@ -13,12 +13,10 @@ import BodyContainer from './components/BodyContainer.vue'
 import { getSaved } from './apiCalls.js'
 export default {
   components: { TheHeader, BodyContainer },
-  mounted() {
+  async mounted() {
     this.showPosition()
-    getSaved()
-      .then(data => {
-        this.$store.commit('saveParks', data)
-      })
+    const fetchedSavedParks = await getSaved()
+    this.$store.commit('saveParks', fetchedSavedParks)
   },
   methods: {
     showPosition() {
