@@ -15,7 +15,7 @@
     <button @click="mountDirections" class='button-get-directions'>Get Directions</button>
     <directions v-if="directionsIsMounted" :park="this.park"></directions>
     <h2>Not the right park for your pup?</h2>
-    <router-link to='/'><button>Search Again</button></router-link>
+    <router-link to='/results'><button>Explore Results</button></router-link>
   </section>
 </template>
 
