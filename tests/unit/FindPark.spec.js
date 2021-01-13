@@ -27,6 +27,8 @@ describe('FindPark', () => {
     const wrapper = mount(FindPark, { store, localVue });
     expect(wrapper.find('h2').text()).toBe("Let's Go Play!");
     expect(wrapper.find('#search-switch').text()).toBe('--Or--');
+    expect(wrapper.find('#location-message').text()).toBe('Retrieving your location...');
+
   });
 
   it('should disable Find Parks Near Me button if geolocation is inactive', () => {
