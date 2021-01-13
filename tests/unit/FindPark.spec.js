@@ -83,6 +83,13 @@ describe('FindPark', () => {
     expect(wrapper.find('#search').text()).toBe('Get Started - woof!');
   });
 
+  // it('should fire load() on page load', async () => {
+  //   const wrapper = mount(FindPark, { store, localVue });
+  //   wrapper.setMethods({ load : jest.fn() })
+  //   await wrapper.find(mounted()).trigger('onload')
+  //   expect(wrapper.vm.load).toHaveBeenCalled();
+  // })
+
   it('should fire searchByLocation when near me button is clicked', async () => {
     const wrapper = mount(FindPark, { store, localVue });
     wrapper.setMethods({ searchByLocation: jest.fn() });
