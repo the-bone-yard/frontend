@@ -5,11 +5,13 @@
     <p>This park is {{ result.opening_hours.open_now ? 'open' : 'closed' }}</p>
     <p>Rating: {{ result.rating }}</p>
     <section class="item-card-bottom">
-      <button v-if="this.$route.path !== '/my-parks'" @click="savePark" class="save-button">
-        SAVE
-      </button>
-      <button v-else @click="unsavePark" class="unsave-button">
-        UNSAVE
+      <button 
+        v-if="this.$route.path !== '/my-parks'" 
+        @click="savePark" 
+        class="save-button"
+        :class="{ disabled: saved === 'PARK SAVED!' }"
+      >
+        {{ saved }}
       </button>
       <router-link :to="`/results/${result.name}`" >
         <button class='details-button'>
@@ -36,6 +38,11 @@ export default {
       // implement code to unsave parks here
     }
   },
+  computed: {
+    saved() {
+      return this.$store.state.savedParks.includes(this.result) ? 'PARK SAVED!' : 'SAVE'
+    }
+  }
 };
 </script>
 
@@ -75,6 +82,14 @@ export default {
     @include button-main-style;  
     margin-top: .7em;
     width: 7em;
+  }
+
+  button.disabled {
+    background-color: darkgray;
+  }
+
+  .disabled {
+    pointer-events: none;
   }
 }
 </style>
