@@ -29,3 +29,9 @@ export const postSaved = (parkToSave) => {
     .then(response => response.json())
     .catch(error => console.error(error))
 }
+
+export const getSaved = () => {
+  // return fetch(SavedParksEndPoint)
+    // .then(response => response.json())
+    // .catch(error => console.error(error))
+}
