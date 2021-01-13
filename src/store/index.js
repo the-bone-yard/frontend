@@ -12,8 +12,8 @@ export default new Vuex.Store({
     homeChildComp: 'Email'
   },
   mutations: {
-    savePark (state, newPark) {
-      state.savedParks = [...state.savedParks, newPark]
+    saveParks (state, savedParksFromApi) {
+      state.savedParks = savedParksFromApi
     },
     storeResults (state, results) {
       state.searchResults = results

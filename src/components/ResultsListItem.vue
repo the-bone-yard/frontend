@@ -23,12 +23,19 @@
 </template>
 
 <script>
-
+import { postSaved, getSaved } from '../apiCalls.js'
 export default {
   props: ['result'],
   methods: {
-    savePark() {
-      this.$store.commit('savePark', this.result)
+    async savePark() {
+      await postSaved(this.result, this.$store.state.email)
+      getSaved()
+        .then(data => {
+          this.$store.commit('saveParks', data)
+        })
+    },
+    unsavePark() {
+      // implement code to unsave parks here
     }
   },
   computed: {
