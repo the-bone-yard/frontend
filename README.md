@@ -1,5 +1,6 @@
 # The Bone Yard -- Frontend
 
+
 ## Project Description 
 
 This application is a dog park locator that allows users to search for dog parks near them or to search by city and state. Users can view details about a particular dog park, get driving directions to a specific dog park, and save dog parks they are interested in. This is a full stack application with the front-end housed on this repository. The repository for the back-end can be found [here](https://github.com/the-bone-yard/backend-repo). This project is the capstone project completed during the final module of the Front End Engineering program at the Turing School of Software and Design. 
@@ -50,7 +51,7 @@ If you would like to view the project codebase on your local machine, follow the
 ![BoneYard Home Page](images/homepage.png)
 
 ### Search Functionality
-- giphy
+![Search Bar](images/search.gif)
 
 ### Results 
 ![Results List](images/resultslist.png)
