@@ -5,10 +5,13 @@
       <h5>{{ message }}</h5>
       <FindPark v-if="noResults" />
     </h4>
-    <results-list-item v-else 
-      v-for="(result, i) in searchResults" 
-      :key='i' 
-      :result='result'></results-list-item>
+    <section v-else>
+    <button v-if="!sorted" @click="sortByRating">Sort By Rating</button>
+    <h4 v-else>Parks are sorted from highest to lowest rating below.</h4>
+    <section :key='i' v-for='(result, i) in searchResults'>
+      <results-list-item :result='result'></results-list-item>
+    </section>
+    </section>
   </section>
 </template>
 
@@ -21,7 +24,8 @@ export default {
   props: ['searchResults'],
   data() {
     return {
-      noResults: false
+      noResults: false,
+      sorted: false
     }
   },
   methods: {
@@ -29,6 +33,12 @@ export default {
       if (!this.$store.state.searchResults.length) {
         this.noResults = true
       }
+    },
+    sortByRating() {
+      this.$store.state.searchResults.sort((parkA, parkB) => {
+        return parkB.rating - parkA.rating
+      })
+      this.sorted = true
     }
   },
   mounted() {
@@ -62,4 +72,9 @@ export default {
 .loading {
   cursor:  wait;
 }
+
+button {
+  @include button-main-style;
+}
+
 </style>

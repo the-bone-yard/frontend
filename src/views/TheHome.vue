@@ -5,7 +5,7 @@
       alt="Picture of two dogs playing in the grass."
       src="../assets/dogs_playing_home.jpeg"
     />
-    <h2>Find your pup a play date at the best dog parks around!</h2>
+    <h2>Find your pup a new park to bark all over</h2>
     <Email v-if="$store.state.homeChildComp === 'Email'" />
     <FindPark v-else />
   </section>

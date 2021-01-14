@@ -8,12 +8,12 @@
         placeholder="example@gmail.com"
         v-model="email"
       />
-      <button @click="submitEmail">
+      <button @click="submitEmail" :class="{ disabled: email === '' }">
         SUBMIT
       </button>
     </article>
     <h3 
-      :class="{error: message.includes('Required'),
+      :class="{error: message.includes('valid'),
       success: message.includes('Success')}"
     >
       {{ message }}
@@ -33,20 +33,20 @@ export default {
   methods: {
     async submitEmail() {
       if (this.isInvalid) {
-        this.message = 'Please enter a valid email address to continue. Required: @ Required: . '
+        this.message = 'Please enter a valid email address. Example: boneyard@yahoo.com'
         this.email = ''
         return 
       }
       await this.$store.commit('storeEmail', this.email);
+      this.message = `Success! ${this.$store.state.email} has signed in.`
+      setTimeout(() => this.$store.commit('changeToSearch'), 2000);
       const fetchedSavedParks = await getSaved(this.$store.state.email)
       this.$store.commit('saveParks', fetchedSavedParks)
-      this.message = `Success! ${this.$store.state.email} has been saved.`
-      setTimeout(() => this.$store.commit('changeToSearch'), 2500);
     }
   },
   computed: {
     isInvalid() {
-      return this.email === '' || !this.email.includes('@') || !this.email.includes('.')
+      return !this.email.includes('@') || !this.email.includes('.')
     }
   }
 }
@@ -62,6 +62,14 @@ button {
 input {
   padding: 0.5em;
   margin: 0.5em;
+}
+
+button.disabled {
+  background-color: darkgray;
+}
+
+.disabled {
+  pointer-events: none;
 }
 
 .error {
