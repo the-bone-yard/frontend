@@ -1,6 +1,10 @@
 # The Bone Yard -- frontend
 
-## Purpose 
+As a dog owner, I'd like to be able to set-up "doggie play-dates" with other owners and dogs but there's no safe and functional way to do that. This app attempts to tackle that monumentous problem.
+
+The app [(which can be found here)](https://the-bone-yard-fe.herokuapp.com/#/)
+
+## 
 
 ## Contributors
 
