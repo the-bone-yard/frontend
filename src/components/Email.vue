@@ -38,7 +38,7 @@ export default {
         return 
       }
       await this.$store.commit('storeEmail', this.email);
-      this.message = `Success! ${this.$store.state.email} has been saved.`
+      this.message = `Success! ${this.$store.state.email} has signed in.`
       const fetchedSavedParks = await getSaved(this.$store.state.email)
       this.$store.commit('saveParks', fetchedSavedParks)
       setTimeout(() => this.$store.commit('changeToSearch'), 2000);
