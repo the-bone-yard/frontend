@@ -19,7 +19,7 @@
       <img :src="determinePhoto()" :alt="'photo for ' + park.name" />
     </article>
     <h2 id="directions-message" v-if="!this.$store.state.geolocation">Wanna go play? Enable location services to get directions to this park!</h2>
-    <button v-if="this.$store.state.geolocation" @click="mountDirections" class='button-get-directions'>{{ directionButtonText }}</button>
+    <button v-else @click="mountDirections" class='button-get-directions'>{{ directionButtonText }}</button>
     <directions v-if="directionsIsMounted" :park="this.park"></directions>
     <h2 id="park-message">Not the right park for your pup?</h2>
     <router-link to='/results'><button>Explore Results</button></router-link>
