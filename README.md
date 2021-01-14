@@ -2,27 +2,20 @@
 
 ## Project Description 
 
-This application is dog park locator that allows users to search for dog parks near them or to search by city and state. Users can view details about a particular dog park, get driving directions to a specific dog park, and save dog parks they are interested in. This is a full stack application with the front-end housed on this repository. The repository for the back-end can be found [here](https://github.com/the-bone-yard/backend-repo). This project is the capstone project completed during the final module of the Front End Engineering program at the Turing School of Software and Design. 
+This application is a dog park locator that allows users to search for dog parks near them or to search by city and state. Users can view details about a particular dog park, get driving directions to a specific dog park, and save dog parks they are interested in. This is a full stack application with the front-end housed on this repository. The repository for the back-end can be found [here](https://github.com/the-bone-yard/backend-repo). This project is the capstone project completed during the final module of the Front End Engineering program at the Turing School of Software and Design. 
 
 The BoneYard deployed application can be found [HERE.](https://the-bone-yard-fe.herokuapp.com/#/)
 
 ## Contributors
 
-Bret Merritt
-[<img align="left" alt="Bret's github" width="22px" src="https://raw.githubusercontent.com/iconic/open-iconic/master/svg/globe.svg" />][git-bret]
-[<img align="left" alt="Bret's linkedin' | LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin-bret]
+Bret Merritt - [LinkedIn](https://www.linkedin.com/in/bret-merritt/) || [GitHub](https://github.com/bretm9)
 
-Nathan Darrington
-[<img align="left" alt="Nathan's github" width="22px" src="https://raw.githubusercontent.com/iconic/open-iconic/master/svg/globe.svg" />][git-nath]
-[<img align="left" alt="Nathan's linkedin' | LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin-nath]
+Nathan Darrington - [LinkedIn](https://www.linkedin.com/in/nathandarrington/) || [GitHub](https://github.com/npdarrington)
 
-Nicole Gooden
-[<img align="left" alt="Nicole's github" width="22px" src="https://raw.githubusercontent.com/iconic/open-iconic/master/svg/globe.svg" />][git-nicole]
-[<img align="left" alt="Nicole's linkedin' | LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin-nicole]
 
-Stacy Potten
-[<img align="left" alt="Stacy's github" width="22px" src="https://raw.githubusercontent.com/iconic/open-iconic/master/svg/globe.svg" />][git-stac]
-[<img align="left" alt="Stacy's linkedin' | LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin-stac]
+Nicole Gooden - [LinkedIn](https://www.linkedin.com/in/nicolemgooden/) || [GitHub](https://github.com/nicolegooden)
+
+Stacy Potten - [LinkedIn](https://www.linkedin.com/in/stacy-potten/) || [GitHub](https://github.com/stacyp2006)
 
 
 ## Front-End Technologies
@@ -39,8 +32,6 @@ Stacy Potten
 
 
 ## Set-up
-
-The deployed application can be found [HERE.](https://the-bone-yard-fe.herokuapp.com/#/) 
 
 If you would like to view the project codebase on your local machine, follow the following steps: 
   - `cd` into your directory of choice and clone down the repo with `git clone git@github.com:the-bone-yard/frontend.git`
@@ -87,17 +78,3 @@ A full list of Issues we would like to implement in the future can be found [her
 
 ## Additional Links
 - [Project Board](https://github.com/orgs/the-bone-yard/projects/1)
-
-
-[git-bret]: https://github.com/bretm9
-[linkedin-bret]: https://www.linkedin.com/in/bret-merritt/
-
-
-[git-nath]: https://github.com/npdarrington
-[linkedin-nath]: https://www.linkedin.com/in/nathandarrington/
-
-[git-nicole]: https://github.com/nicolegooden
-[linkedin-nicole]: https://www.linkedin.com/in/nicolemgooden/
-
-[git-stac]: https://github.com/stacyp2006
-[linkedin-stac]: https://www.linkedin.com/in/stacy-potten/
