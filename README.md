@@ -1,48 +1,81 @@
-# The Bone Yard -- frontend
+# The Bone Yard -- Frontend
 
-As a dog owner, I'd like to be able to set-up "doggie play-dates" with other owners and dogs but there's no safe and functional way to do that. This app attempts to tackle that monumentous problem.
 
-The app [(which can be found here)](https://the-bone-yard-fe.herokuapp.com/#/) currently allows a user to search for dog parks in their current area, or a specific area of their choosing.
+## Project Description 
 
-## Purpose
+This application is a dog park locator that allows users to search for dog parks near them or to search by city and state. Users can view details about a particular dog park, get driving directions to a specific dog park, and save dog parks they are interested in. This is a full stack application with the front-end housed on this repository. The repository for the back-end can be found [here](https://github.com/the-bone-yard/backend-repo). This project is the capstone project completed during the final module of the Front End Engineering program at the Turing School of Software and Design. 
 
-This repo serves as the main frontend portion of the application. The backend can be found [here.](https://github.com/the-bone-yard/backend-repo)
+The BoneYard deployed application can be found [HERE.](https://the-bone-yard-fe.herokuapp.com/#/)
 
 ## Contributors
 
-Bret Merritt
-[<img align="left" alt="Bret's github" width="22px" src="https://raw.githubusercontent.com/iconic/open-iconic/master/svg/globe.svg" />][git-bret]
-[<img align="left" alt="Bret's linkedin' | LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin-bret]
-<br />
-<br>
-Nathan Darrington
-[<img align="left" alt="Nathan's github" width="22px" src="https://raw.githubusercontent.com/iconic/open-iconic/master/svg/globe.svg" />][git-nath]
-[<img align="left" alt="Nathan's linkedin' | LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin-nath]
-<br />
-<br>
-Nicole Gooden
-[<img align="left" alt="Nicole's github" width="22px" src="https://raw.githubusercontent.com/iconic/open-iconic/master/svg/globe.svg" />][git-nicole]
-[<img align="left" alt="Nicole's linkedin' | LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin-nicole]
-<br />
-<br>
-Stacy Potten
-[<img align="left" alt="Stacy's github" width="22px" src="https://raw.githubusercontent.com/iconic/open-iconic/master/svg/globe.svg" />][git-stac]
-[<img align="left" alt="Stacy's linkedin' | LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin-stac]
-<br />
+Bret Merritt - [LinkedIn](https://www.linkedin.com/in/bret-merritt/) || [GitHub](https://github.com/bretm9)
+
+Nathan Darrington - [LinkedIn](https://www.linkedin.com/in/nathandarrington/) || [GitHub](https://github.com/npdarrington)
+
+
+Nicole Gooden - [LinkedIn](https://www.linkedin.com/in/nicolemgooden/) || [GitHub](https://github.com/nicolegooden)
+
+Stacy Potten - [LinkedIn](https://www.linkedin.com/in/stacy-potten/) || [GitHub](https://github.com/stacyp2006)
+
+
+## Front-End Technologies
+
+- JavaScript
+- Vue
+- GoogleMaps API
+- Jest
+- Babel
+- HTML5
+- CSS/SCSS
+- Travis CI
+- Heroku
+
 
 ## Set-up
 
+If you would like to view the project codebase on your local machine, follow the following steps: 
+  - `cd` into your directory of choice and clone down the repo with `git clone git@github.com:the-bone-yard/frontend.git`
+  - `cd` into the repo directory 
+  - Run `npm install`
+  - Run `npm start` and view the site on https://localhost:8080
+  - `^C` will terminate the server
+  - Test suites can be viewed by running `npm run test:unit`
+  
+## The BoneYard in Action
 
+### The Planning Phase
+![Wireframe](images/wireframe.png)
 
-[git-bret]: https://github.com/bretm9
-[linkedin-bret]: https://www.linkedin.com/in/bret-merritt/
+### Home Page
+![BoneYard Home Page](images/homepage.png)
 
+### Search Functionality
+![Search Bar](images/search.gif)
 
-[git-nath]: https://github.com/npdarrington
-[linkedin-nath]: https://www.linkedin.com/in/nathandarrington/
+### Results 
+![Results List](images/resultslist.png)
 
-[git-nicole]: https://github.com/nicolegooden
-[linkedin-nicole]: https://www.linkedin.com/in/nicolemgooden/
+![Results Map](images/resultsmap.png)
 
-[git-stac]: https://github.com/stacyp2006
-[linkedin-stac]: https://www.linkedin.com/in/stacy-potten/
+### Park Details
+![Park Details](images/parkdetails.png)
+
+### Saved Parks
+![Saved Parks](images/savedparks.png)
+  
+## Future Iterations
+While we are very pleased with the results of our efforts so far, we are just as excited about the improvements that are still to come for The BoneYard. From a frontend perspective, we would like to: 
+
+- Enable better user authentication 
+- Allow pet owners to create profile(s) for their dog(s)
+- Allow dogs to "friend" one another 
+- Send messages between users to schedule puppy play dates at a dog park
+- Remove park from saved parks
+- More and improved error handling (including routes)
+- Sort results by rating and/or distance from current location
+
+A full list of Issues we would like to implement in the future can be found [here](https://github.com/the-bone-yard/frontend/issues)
+
+## Additional Links
+- [Project Board](https://github.com/orgs/the-bone-yard/projects/1)
