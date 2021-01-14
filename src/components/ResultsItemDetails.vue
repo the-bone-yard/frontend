@@ -46,11 +46,10 @@ export default {
       return this.park.opening_hours.open_now === true ? 'Open Now' : 'Closed Now'
     },
     saved() {
-      if (this.$store.state.savedParks.includes(this.park)) {
-        return 'PARK SAVED!'
-      } else {
-        return 'SAVE'
-      }
+      let result = this.$store.state.savedParks.find(saved => {
+        return saved.name === this.park.name 
+      })
+      return !result ? 'SAVE' : 'PARK SAVED!'
     },
     directionButtonText() {
       return this.directionsIsMounted ? 'Hide Directions' : 'Show Directions'
@@ -65,7 +64,6 @@ export default {
         })
     },
     mountDirections() {
-      // this.directionsIsMounted = true;
       if (this.directionButtonText === 'Show Directions') {
         this.directionsIsMounted = true
       } else {
