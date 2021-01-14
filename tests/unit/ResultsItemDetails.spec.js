@@ -93,7 +93,8 @@ describe('ResultsItemDetails', () => {
     expect(wrapper.exists()).toBe(true)
     expect(wrapper.find('section').isVisible()).toBeTruthy();
     expect(wrapper.find('h1').text()).toBe('BoneYard');
-    expect(wrapper.find('h2').text()).toBe('Not the right park for your pup?');
+    expect(wrapper.find('#park-message').text()).toBe('Not the right park for your pup?');
+    expect(wrapper.find('#directions-message').text()).toBe('Wanna go play? Enable location services to get directions to this park!')
 
     const getAllPTags = wrapper.findAll('p');
     expect(getAllPTags.at(0).text()).toBe('Address: 5123-5275 Valmont Rd, Boulder');
@@ -102,8 +103,8 @@ describe('ResultsItemDetails', () => {
 
     const getAllButtonTags = wrapper.findAll('button');
     expect(getAllButtonTags.at(0).text()).toBe('SAVE');
-    expect(getAllButtonTags.at(1).text()).toBe('Show Directions');
-    expect(getAllButtonTags.at(2).text()).toBe('Explore Results');
+    // expect(getAllButtonTags.at(1).text()).toBe('Show Directions');
+    expect(getAllButtonTags.at(1).text()).toBe('Explore Results');
   })
 
   it('should trigger savePark method when save button is clicked', () => {
