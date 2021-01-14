@@ -60,7 +60,7 @@ If you would like to view the project codebase on your local machine, follow the
 ![BoneYard Home Page](images/homepage.png)
 
 ### Search Functionality
-- giphy
+![Search Bar](images/search.gif)
 
 ### Results 
 ![Results List](images/resultslist.png)
