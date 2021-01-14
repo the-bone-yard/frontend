@@ -5,7 +5,7 @@
       alt="picture of two puppies in the snow"
       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrnUwJ9xC5z-HtpYQZc3jHYJfcMtQUf8qzVg&usqp=CAU"
     />
-    <h2>Find your pup a play date at the best dog parks around!</h2>
+    <h2>Find your pup a new park to bark all over</h2>
     <Email v-if="$store.state.homeChildComp === 'Email'" />
     <FindPark v-else />
   </section>
