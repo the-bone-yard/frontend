@@ -1,5 +1,6 @@
 <template>
   <section class='results-list' :class="{ loading: message === 'Loading parks...' }">
+    <h3 v-if="message === 'Loading parks...'"><LoadingIcon /></h3>
     <h4 v-if="!$store.state.searchResults.length">
       <h5>{{ message }}</h5>
       <FindPark v-if="noResults" />
@@ -13,6 +14,8 @@
 <script>
 import ResultsListItem from './ResultsListItem.vue';
 import FindPark from './FindPark.vue';
+import LoadingIcon from './LoadingIcon.vue';
+
 export default {
   props: ['searchResults'],
   data() {
@@ -30,7 +33,7 @@ export default {
   mounted() {
     setTimeout(() => this.load(), 6000)
   },
-  components: { ResultsListItem, FindPark },
+  components: { ResultsListItem, FindPark, LoadingIcon },
   computed: {
     message() {
       if (this.noResults) {
