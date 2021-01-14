@@ -8,7 +8,7 @@
         placeholder="example@gmail.com"
         v-model="email"
       />
-      <button @click="submitEmail">
+      <button @click="submitEmail" :class="{ disabled: email === '' }">
         SUBMIT
       </button>
     </article>
@@ -41,12 +41,12 @@ export default {
       this.message = `Success! ${this.$store.state.email} has been saved.`
       const fetchedSavedParks = await getSaved(this.$store.state.email)
       this.$store.commit('saveParks', fetchedSavedParks)
-      setTimeout(() => this.$store.commit('changeToSearch'), 2500);
+      setTimeout(() => this.$store.commit('changeToSearch'), 2000);
     }
   },
   computed: {
     isInvalid() {
-      return this.email === '' || !this.email.includes('@') || !this.email.includes('.')
+      return !this.email.includes('@') || !this.email.includes('.')
     }
   }
 }
@@ -62,6 +62,14 @@ button {
 input {
   padding: 0.5em;
   margin: 0.5em;
+}
+
+button.disabled {
+  background-color: darkgray;
+}
+
+.disabled {
+  pointer-events: none;
 }
 
 .error {
