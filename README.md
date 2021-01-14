@@ -2,9 +2,11 @@
 
 As a dog owner, I'd like to be able to set-up "doggie play-dates" with other owners and dogs but there's no safe and functional way to do that. This app attempts to tackle that monumentous problem.
 
-The app [(which can be found here)](https://the-bone-yard-fe.herokuapp.com/#/)
+The app [(which can be found here)](https://the-bone-yard-fe.herokuapp.com/#/) currently allows a user to search for dog parks in their current area, or a specific area of their choosing.
 
-## 
+## Purpose
+
+This repo serves as the main frontend portion of the application. The backend can be found [here.](https://github.com/the-bone-yard/backend-repo)
 
 ## Contributors
 
