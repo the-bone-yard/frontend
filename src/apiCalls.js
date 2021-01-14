@@ -54,7 +54,7 @@ export const getSaved = (email) => {
             open_now: (park.opening_hours === 'true')
           },
           photos: [{ photo_reference: park.photo }],
-          rating: parseInt(park.rating)
+          rating: parseFloat(park.rating)
         }
       })
       return convertedParks
