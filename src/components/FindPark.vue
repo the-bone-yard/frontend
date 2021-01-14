@@ -23,7 +23,7 @@
       type="text"
       aria-label="Type your search terms here"
       placeholder="Enter City, State to search"
-      aria-describedby="Enter city or address to search for specific parks near you."
+      aria-describedby="Enter city and state to search for dog parks in that area."
       v-model="searchTerm"
     />
     <router-link v-if="searchTerm" to="/results">
