@@ -5,7 +5,8 @@
       <FindPark v-if="noResults" />
     </h4>
     <section v-else>
-    <button @click="sortByRating">Sort By Rating</button>
+    <button v-if="!sorted" @click="sortByRating">Sort By Rating</button>
+    <h4 v-else>Parks are sorted from highest to lowest rating below.</h4>
     <section :key='i' v-for='(result, i) in searchResults'>
       <results-list-item :result='result'></results-list-item>
     </section>
@@ -20,7 +21,8 @@ export default {
   props: ['searchResults'],
   data() {
     return {
-      noResults: false
+      noResults: false,
+      sorted: false
     }
   },
   methods: {
@@ -33,6 +35,7 @@ export default {
       this.$store.state.searchResults.sort((parkA, parkB) => {
         return parkB.rating - parkA.rating
       })
+      this.sorted = true
     }
   },
   mounted() {
