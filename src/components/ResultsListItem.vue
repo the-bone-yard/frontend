@@ -37,14 +37,14 @@ export default {
         .then(data => {
           this.$store.commit('saveParks', data)
         })
-    },
-    unsavePark() {
-      // implement code to unsave parks here
     }
   },
   computed: {
     saved() {
-      return this.$store.state.savedParks.includes(this.result) ? 'PARK SAVED!' : 'SAVE'
+      let result = this.$store.state.savedParks.find(saved => {
+        return saved.name === this.result.name 
+      })
+      return !result ? 'SAVE' : 'PARK SAVED!'
     }
   }
 };
