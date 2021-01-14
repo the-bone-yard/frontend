@@ -10,12 +10,16 @@
         @click="savePark" 
         class="save-button"
         :class="{ disabled: saved === 'PARK SAVED!' }"
+        aria-describedby="Click this button to save this park as a favorite."
       >
         {{ saved }}
       </button>
       <router-link :to="`/results/${result.name}`" >
-        <button class='details-button'>
-          DETAILS
+        <button 
+          class='details-button'
+          aria-describedby="Click this button to view all the details for this park."  
+        >
+        DETAILS
         </button>
       </router-link>
     </section>
@@ -54,6 +58,7 @@ export default {
   align-items: center;
   background-color: white;
   border-radius: .4em;
+  width: 320px;
   filter: drop-shadow(0.2em 0.2em 0.2em rgba(0, 0, 0, 0.75));
 
   :first-child {
@@ -81,7 +86,7 @@ export default {
   .save-button, .details-button, .unsave-button {
     @include button-main-style;  
     margin-top: .7em;
-    width: 7em;
+    width: 9em;
   }
 
   button.disabled {
@@ -90,6 +95,10 @@ export default {
 
   .disabled {
     pointer-events: none;
+  }
+  
+  @media screen and (max-width: 360px) {
+    width: 260px;
   }
 }
 </style>

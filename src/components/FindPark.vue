@@ -9,6 +9,7 @@
         id="location"
         :class="{ disabled: !this.$store.state.geolocation }"
         @click="searchByLocation"
+        aria-describedby="Click this button to search for parks based on your current location within a 30 mile radius."
       >
         Find a dog park near me!
       </button>
@@ -22,10 +23,16 @@
       type="text"
       aria-label="Type your search terms here"
       placeholder="Enter City, State to search"
+      aria-describedby="Enter city and state to search for dog parks in that area."
       v-model="searchTerm"
     />
     <router-link v-if="searchTerm" to="/results">
-      <button id="search" class="search-button" @click="search">
+      <button 
+        id="search" 
+        class="search-button" 
+        @click="search"
+        aria-describedby="Click this button to search by city or address after filling out the input above."
+      >
         Get Started - woof!
       </button>
     </router-link>

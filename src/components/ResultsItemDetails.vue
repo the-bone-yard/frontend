@@ -100,7 +100,7 @@ export default {
   }
 
   img {
-    width: 12em;
+    width: 90%;
     height: auto;
     border-radius: 13%;
     padding: 1em;

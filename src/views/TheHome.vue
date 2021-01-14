@@ -2,8 +2,8 @@
   <section>
     <img
       class="puppy-picture"
-      alt="picture of two puppies in the snow"
-      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrnUwJ9xC5z-HtpYQZc3jHYJfcMtQUf8qzVg&usqp=CAU"
+      alt="Picture of two dogs playing in the grass."
+      src="../assets/dogs_playing_home.jpeg"
     />
     <h2>Find your pup a play date at the best dog parks around!</h2>
     <Email v-if="$store.state.homeChildComp === 'Email'" />
@@ -24,5 +24,6 @@ export default {
 .puppy-picture {
   width: 100%;
   border-radius: 5%;
+  max-width: 1000px;
 }
 </style>
