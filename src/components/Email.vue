@@ -13,7 +13,7 @@
       </button>
     </article>
     <h3 
-      :class="{error: message.includes('Required'),
+      :class="{error: message.includes('valid'),
       success: message.includes('Success')}"
     >
       {{ message }}
@@ -33,7 +33,7 @@ export default {
   methods: {
     async submitEmail() {
       if (this.isInvalid) {
-        this.message = 'Please enter a valid email address to continue. Required: @ Required: . '
+        this.message = 'Please enter a valid email address. Example: boneyard@yahoo.com'
         this.email = ''
         return 
       }
