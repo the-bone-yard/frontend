@@ -15,6 +15,7 @@
     </router-link>
     <h3 id="location-message" v-if="!this.$store.state.geolocation">
       {{ message }}
+      <h4 v-if="message === 'Retrieving your location...'"><LoadingIcon /></h4>
     </h3>
     <h3 id="search-switch">--Or--</h3>
     <input
@@ -35,7 +36,10 @@
 <script>
 import { getResults } from '../apiCalls.js';
 import { getSearch } from '../apiCalls.js';
+import LoadingIcon from '../components/LoadingIcon.vue'
+
 export default {
+  components: { LoadingIcon },
   data() {
     return {
       searchTerm: '',
