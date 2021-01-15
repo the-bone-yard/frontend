@@ -5,12 +5,15 @@
       <h5>{{ message }}</h5>
       <FindPark v-if="noResults" />
     </h4>
-    <section v-else>
-    <button v-if="!sorted" @click="sortByRating">Sort By Rating</button>
-    <h4 v-else>Parks are sorted from highest to lowest rating below.</h4>
-    <section :key='i' v-for='(result, i) in searchResults'>
-      <results-list-item :result='result'></results-list-item>
-    </section>
+    <section v-else class="list-results">
+      <button v-if="!sorted" @click="sortByRating">Sort By Rating</button>
+      <h4 v-else>Parks are sorted from highest to lowest rating below.</h4>
+        <section class="result-items">
+          <results-list-item
+            v-for="(result, i) in searchResults"
+            :key="i"
+            :result='result'></results-list-item>
+        </section>
     </section>
   </section>
 </template>
@@ -66,7 +69,19 @@ export default {
   @include customDisplayFlex(0, 0);
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+
+  .list-results {
+    @include customDisplayFlex(0, 0, column);
+    justify-content: center;
+    align-items: center;
+
+    .result-items {
+      @include customDisplayFlex(0, 0);
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+  }
 }
 
 .loading {
