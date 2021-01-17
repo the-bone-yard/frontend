@@ -8,6 +8,7 @@ const router = new VueRouter()
 
 describe('TheHeader', () => {
   let header;
+  
   beforeEach(() => {
     header = shallowMount(TheHeader, {localVue, router})
   })
@@ -22,6 +23,4 @@ describe('TheHeader', () => {
     expect(header.find('nav').text()).toBe('Search My Parks View Results')
     expect(header.find('h1').text()).toBe('TheBone Yard')
   })
-
-  
 })
