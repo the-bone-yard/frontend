@@ -2,7 +2,7 @@
 	<section>
 		<p>Zoom out on map to ensure all result markers are visible.</p>
 		<GmapMap
-		    class="gmap-map"
+			class="gmap-map"
 			:center="centerMap"
 			:zoom="10"
 			:options="{
