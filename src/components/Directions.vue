@@ -4,6 +4,7 @@
       {{direction}}  
     </p>
   </article>
+  <p v-else>No directions available.</p>
 </template>
 
 <script>
