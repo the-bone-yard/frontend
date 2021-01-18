@@ -1,4 +1,4 @@
-import { mount, shallowMount, createLocalVue } from '@vue/test-utils'
+import { shallowMount, createLocalVue } from '@vue/test-utils'
 import ResultsContainer from '@/views/ResultsContainer.vue'
 import ResultsList from '@/components/ResultsList.vue'
 import ResultsMap from '@/components/ResultsMap.vue'
