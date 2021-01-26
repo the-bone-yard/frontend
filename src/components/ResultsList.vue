@@ -1,19 +1,23 @@
 <template>
-  <section class='results-list' :class="{ loading: message === 'Loading parks...' }">
+  <section
+    class="results-list"
+    :class="{ loading: message === 'Loading parks...' }"
+  >
     <h3 v-if="message === 'Loading parks...'"><LoadingIcon /></h3>
     <h4 v-if="!$store.state.searchResults.length">
-      <h5>{{ message }}</h5>
+      <h5 class="message">{{ message }}</h5>
       <FindPark v-if="noResults" />
     </h4>
     <section v-else class="list-results">
       <button v-if="!sorted" @click="sortByRating">Sort By Rating</button>
       <h4 v-else>Parks are sorted from highest to lowest rating below.</h4>
-        <section class="result-items">
-          <results-list-item
-            v-for="(result, i) in searchResults"
-            :key="i"
-            :result='result'></results-list-item>
-        </section>
+      <section class="result-items">
+        <results-list-item
+          v-for="(result, i) in searchResults"
+          :key="i"
+          :result="result"
+        ></results-list-item>
+      </section>
     </section>
   </section>
 </template>
@@ -28,38 +32,43 @@ export default {
   data() {
     return {
       noResults: false,
-      sorted: false
-    }
+      noEmail: false,
+      sorted: false,
+    };
   },
   methods: {
     load() {
-      if (!this.$store.state.searchResults.length) {
-        this.noResults = true
+      if (!this.$store.state.email) {
+        this.noEmail = true;
+      } else if (!this.$store.state.searchResults.length) {
+        this.noResults = true;
       }
     },
     sortByRating() {
       this.$store.state.searchResults.sort((parkA, parkB) => {
-        return parkB.rating - parkA.rating
-      })
-      this.sorted = true
-    }
+        return parkB.rating - parkA.rating;
+      });
+      this.sorted = true;
+    },
   },
   mounted() {
-    setTimeout(() => this.load(), 6000)
+    setTimeout(() => this.load(), 4000);
   },
   components: { ResultsListItem, FindPark, LoadingIcon },
   computed: {
     message() {
-      if (this.noResults) {
-        return 'Sorry, no results found. Try a different search!'
+      if (this.noEmail) {
+        return 'Return Home to sign in with your email and search for parks.';
+      } else if (this.noResults) {
+        return 'Sorry, no results found. Try a different search!';
       } else if (!this.noResults && !this.$store.state.searchResults.length) {
-        return 'Loading parks...'
+        return 'Loading parks...';
       } else {
-        return ''
+        return '';
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -83,13 +92,14 @@ export default {
     }
   }
 }
-
+.message {
+  font-size: 20px;
+}
 .loading {
-  cursor:  wait;
+  cursor: wait;
 }
 
 button {
   @include button-main-style;
 }
-
 </style>
