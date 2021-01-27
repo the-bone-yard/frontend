@@ -15,7 +15,7 @@ export const postSaved = (parkToSave, email) => {
     name: parkToSave.name,
     formatted_address: parkToSave.formatted_address,
     opening_hours: parkToSave.opening_hours.open_now ? parkToSave.opening_hours.open_now.toString() : 'false',
-    photo: parkToSave.photos[0].photo_reference,
+    photo: parkToSave.photos[0].photo_reference || 'no-photo',
     rating: parkToSave.rating.toString(),
     email: email,
     lat: parkToSave.geometry.location.lat,
@@ -28,33 +28,34 @@ export const postSaved = (parkToSave, email) => {
     },
     body: JSON.stringify(convertedPark)
   };
-  return fetch(`https://boneyard-be.herokuapp.com/api/park/create/`, init)
+  console.log(convertedPark)
+  return fetch(`https://boneyard-rails.herokuapp.com/api/v1/park/`, init)
     .then(response => response.json())
     .catch(error => console.error(error))
 }
 
 export const getSaved = (email) => {
-  return fetch('https://boneyard-be.herokuapp.com/api/park/all/')
+  return fetch('https://boneyard-rails.herokuapp.com/api/v1/park/all/')
     .then(response => response.json())
     .then(data => {
-      const userFetchedParks = data.filter(park => {
-       return park.email === email
+      const userFetchedParks = data.data.filter(park => {
+       return park.attributes.email === email
       })
       const convertedParks = userFetchedParks.map(park => {
         return {
-          formatted_address: park.address,
+          formatted_address: park.attributes.formatted_address,
           geometry: {
             location: {
-              lat: park.lat,
-              lng: park.lng
+              lat: park.attributes.lat,
+              lng: park.attributes.lng
             }
           },
-          name: park.name,
+          name: park.attributes.name,
           opening_hours: {
-            open_now: (park.opening_hours === 'true')
+            open_now: (park.attributes.opening_hours === 'true')
           },
-          photos: [{ photo_reference: park.photo }],
-          rating: parseFloat(park.rating)
+          photos: [{ photo_reference: park.attributes.photo }],
+          rating: parseInt(park.attributes.rating)
         }
       })
       return convertedParks
