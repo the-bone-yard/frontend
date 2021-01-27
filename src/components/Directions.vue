@@ -20,7 +20,9 @@ export default {
     const geolocation = this.$store.state.geolocation
     const parkCoords = this.park.geometry.location
     getDirections(geolocation, parkCoords)
-    .then(data => this.directions = data.narratives)
+    .then(data => {
+      this.directions = data
+      })
   }
 }
 </script>
