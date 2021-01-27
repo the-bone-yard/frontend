@@ -28,7 +28,7 @@ export const postSaved = (parkToSave, email) => {
     },
     body: JSON.stringify(convertedPark)
   };
-  
+
   return fetch(`https://boneyard-rails.herokuapp.com/api/v1/park/`, init)
     .then(response => response.json())
     .catch(error => console.error(error))
