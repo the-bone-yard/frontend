@@ -28,7 +28,7 @@ export const postSaved = (parkToSave, email) => {
     },
     body: JSON.stringify(convertedPark)
   };
-  console.log(convertedPark)
+  
   return fetch(`https://boneyard-rails.herokuapp.com/api/v1/park/`, init)
     .then(response => response.json())
     .catch(error => console.error(error))
@@ -64,7 +64,7 @@ export const getSaved = (email) => {
 }
 
 export const getDirections = (myCoords, parkCoords) => {
-  return fetch(`https://boneyard-be.herokuapp.com/api/current=${myCoords.latitude},${myCoords.longitude}/to=${parkCoords.lat},${parkCoords.lng}`)
+  return fetch(`https://boneyard-rails.herokuapp.com/api/v2/directions/?current=${myCoords.coords.latitude},${myCoords.coords.longitude}&to=${parkCoords.lat},${parkCoords.lng}&api_key=${process.env.VUE_APP_DIRECTIONS_API_KEY}`)
   .then(res => res.json())
   .catch(err => console.error(err))
 }
