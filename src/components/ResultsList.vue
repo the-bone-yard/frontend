@@ -38,9 +38,7 @@ export default {
   },
   methods: {
     load() {
-      if (!this.$store.state.email) {
-        this.noEmail = true;
-      } else if (!this.$store.state.searchResults.length) {
+      if (!this.$store.state.searchResults.length) {
         this.noResults = true;
       }
     },
@@ -52,7 +50,11 @@ export default {
     },
   },
   mounted() {
-    setTimeout(() => this.load(), 4000);
+    if (!this.$store.state.email) {
+      this.noEmail = true;
+    } else {
+      setTimeout(() => this.load(), 4000);
+    }
   },
   components: { ResultsListItem, FindPark, LoadingIcon },
   computed: {
