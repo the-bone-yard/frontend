@@ -20,6 +20,7 @@ export const postSaved = (parkToSave, email) => {
     email: email,
     lat: parkToSave.geometry.location.lat,
     lng: parkToSave.geometry.location.lng,
+    api_key: process.env.VUE_APP_BACKEND_API_KEY
   }
   const init = {
     method: 'POST',
@@ -64,7 +65,7 @@ export const getSaved = (email) => {
 }
 
 export const getDirections = (myCoords, parkCoords) => {
-  return fetch(`https://boneyard-rails.herokuapp.com/api/v2/directions/?current=${myCoords.coords.latitude},${myCoords.coords.longitude}&to=${parkCoords.lat},${parkCoords.lng}&api_key=${process.env.VUE_APP_DIRECTIONS_API_KEY}`)
+  return fetch(`https://boneyard-rails.herokuapp.com/api/v2/directions/?current=${myCoords.coords.latitude},${myCoords.coords.longitude}&to=${parkCoords.lat},${parkCoords.lng}&api_key=${process.env.VUE_APP_BACKEND_API_KEY}`)
   .then(res => res.json())
   .catch(err => console.error(err))
 }
