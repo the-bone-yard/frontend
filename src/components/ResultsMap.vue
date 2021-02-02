@@ -20,13 +20,13 @@
 			<GmapMarker
 				v-for="(m, index) in markers"
 				:key="index"
-				:position="m.geometry.location"
+				:position="{ lat: m.lat, lng: m.lng }"
 				:clickable="true"
 				:draggable="false"
 				@click="handleMarkerClick(m)"
 			/>
 			<GmapMarker v-if="this.selectedMarker"
-				:position="this.selectedMarker.geometry.location"
+				:position="{ lat: this.selectedMarker.lat, lng: this.selectedMarker.lng }"
 				:clickable="false"
 				:draggable="false"
 				:icon="{ scaledSize: {width: 28, height: 45}, url: 'https://www.clker.com/cliparts/R/g/O/v/U/h/google-maps-marker-for-residencelamontagne-md.png' }"
@@ -56,8 +56,8 @@ export default {
 			const findLocation = this.markers.find(loc => loc.name === name);
 			if (findLocation) {
 				this.centerMap = {
-					lat: findLocation.geometry.location.lat,
-					lng: findLocation.geometry.location.lng
+					lat: findLocation.lat,
+					lng: findLocation.lng
 				};
 			}
 		},
