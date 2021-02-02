@@ -64,13 +64,13 @@ export default {
     async search() {
       const results = await getSearch(this.searchTerm)
       await this.$store.commit('clearResults');
-      this.$store.commit('storeResults', results);
+      this.$store.commit('storeResults', results.parks);
       this.searchTerm = '';
     },
     async searchByLocation() {
       const results = await getResults(this.$store.state.geolocation.coords)
       await this.$store.commit('clearResults');
-      this.$store.commit('storeResults', results);
+      this.$store.commit('storeResults', results.parks);
     },
   },
   mounted() {

@@ -1,11 +1,29 @@
 export const getResults = (coords) => {
-  return fetch(`https://boneyard-be.herokuapp.com/api/coordinates=${coords.latitude},${coords.longitude}`)
+  const init = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      data: `${coords.latitude},${coords.longitude}`
+    })
+  };
+  return fetch(`https://boneyard-rails.herokuapp.com/api/v2/park_search/`, init)
     .then(response => response.json())
     .catch(error => console.error(error))
 }
 
 export const getSearch = (searchTerm) => {
-  return fetch(`https://boneyard-be.herokuapp.com/api/coordinates=${searchTerm}`)
+  const init = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      data: searchTerm
+    })
+  };
+  return fetch(`https://boneyard-rails.herokuapp.com/api/v2/park_search/`, init)
     .then(response => response.json())
     .catch(error => console.error(error))
 }
@@ -15,11 +33,12 @@ export const postSaved = (parkToSave, email) => {
     name: parkToSave.name,
     formatted_address: parkToSave.formatted_address,
     opening_hours: parkToSave.opening_hours.open_now ? parkToSave.opening_hours.open_now.toString() : 'false',
-    photo: parkToSave.photos[0].photo_reference,
+    photo: parkToSave.photos[0].photo_reference || 'no-photo',
     rating: parkToSave.rating.toString(),
     email: email,
     lat: parkToSave.geometry.location.lat,
     lng: parkToSave.geometry.location.lng,
+    api_key: process.env.VUE_APP_BACKEND_API_KEY
   }
   const init = {
     method: 'POST',
@@ -28,33 +47,41 @@ export const postSaved = (parkToSave, email) => {
     },
     body: JSON.stringify(convertedPark)
   };
-  return fetch(`https://boneyard-be.herokuapp.com/api/park/create/`, init)
+
+  return fetch(`https://boneyard-rails.herokuapp.com/api/v1/park/`, init)
     .then(response => response.json())
     .catch(error => console.error(error))
 }
 
 export const getSaved = (email) => {
-  return fetch('https://boneyard-be.herokuapp.com/api/park/all/')
+  const init = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ email })
+  }
+  return fetch('https://boneyard-rails.herokuapp.com/api/v1/park/all/', init)
     .then(response => response.json())
     .then(data => {
-      const userFetchedParks = data.filter(park => {
-       return park.email === email
+      const userFetchedParks = data.data.filter(park => {
+       return park.attributes.email === email
       })
       const convertedParks = userFetchedParks.map(park => {
         return {
-          formatted_address: park.address,
+          formatted_address: park.attributes.formatted_address,
           geometry: {
             location: {
-              lat: park.lat,
-              lng: park.lng
+              lat: park.attributes.lat,
+              lng: park.attributes.lng
             }
           },
-          name: park.name,
+          name: park.attributes.name,
           opening_hours: {
-            open_now: (park.opening_hours === 'true')
+            open_now: (park.attributes.opening_hours === 'true')
           },
-          photos: [{ photo_reference: park.photo }],
-          rating: parseFloat(park.rating)
+          photos: [{ photo_reference: park.attributes.photo }],
+          rating: parseInt(park.attributes.rating)
         }
       })
       return convertedParks
@@ -63,7 +90,7 @@ export const getSaved = (email) => {
 }
 
 export const getDirections = (myCoords, parkCoords) => {
-  return fetch(`https://boneyard-be.herokuapp.com/api/current=${myCoords.latitude},${myCoords.longitude}/to=${parkCoords.lat},${parkCoords.lng}`)
+  return fetch(`https://boneyard-rails.herokuapp.com/api/v2/directions/?current=${myCoords.coords.latitude},${myCoords.coords.longitude}&to=${parkCoords.lat},${parkCoords.lng}&api_key=${process.env.VUE_APP_BACKEND_API_KEY}`)
   .then(res => res.json())
   .catch(err => console.error(err))
 }
